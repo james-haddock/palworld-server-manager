@@ -1,0 +1,7 @@
+{
+    "coverage-gutters.coverageFileNames": ["lcov.info"],
+    "coverage-gutters.manualCoverageFilePaths": [
+        "./InstallApp.Tests/coverage/lcov.info",
+        "./ServerApp.Tests/coverage/lcov.info"
+    ]
+}

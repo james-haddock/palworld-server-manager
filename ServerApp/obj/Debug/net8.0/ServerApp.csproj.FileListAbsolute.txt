@@ -61,3 +61,4 @@
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/Debug/net8.0/ServerApp.pdb
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/Debug/net8.0/ServerApp.genruntimeconfig.cache
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/Debug/net8.0/ref/ServerApp.dll
+/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/Debug/net8.0/ServerApp.sourcelink.json

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "gJd8N+VB7juPv2PHaWqMkDFMJKmuhHnLSJUuVaUT6/M=",
+  "Source": "InstallApp",
+  "BasePath": "_content/InstallApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
