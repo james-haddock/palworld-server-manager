@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.IO.Compression;
 
-public class SteamCmdService
+public static class SteamCmdService
 {
-    public async Task<string> DownloadSteamCmd()
+    public static async Task<string> DownloadSteamCmd()
     {
         var httpClient = new HttpClient();
         var data = await httpClient.GetByteArrayAsync("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip");

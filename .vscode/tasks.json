@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/InstallApp.Tests/InstallApp.Tests.csproj",
+                "${workspaceFolder}/InstallAppTests/InstallAppTests.csproj",
                 "/p:CollectCoverage=true",
                 "/p:CoverletOutputFormat=lcov",
                 "/p:CoverletOutput=./coverage/lcov.info"
@@ -24,7 +24,7 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/ServerApp.Tests/ServerApp.Tests.csproj",
+                "${workspaceFolder}/ServerAppTests/ServerAppTests.csproj",
                 "/p:CollectCoverage=true",
                 "/p:CoverletOutputFormat=lcov",
                 "/p:CoverletOutput=./coverage/lcov.info"
