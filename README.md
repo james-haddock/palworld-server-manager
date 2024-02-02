@@ -18,7 +18,7 @@ The application automates the process of setting up a Palworld dedicated server.
 
 - **OS** - Windows 10 / 11.
 
-- **Installed Software** - Direct X and C++ runtime (Bundled in installer if not already installed).
+- **Installed Software** - Steamcmd. Direct X and C++ runtime (Bundled in installer if not already installed).
 
 ## Features
 
