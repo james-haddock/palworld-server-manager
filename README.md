@@ -1,6 +1,6 @@
 # Palworld Dedicated Server Manager
 
-![Banner](https://github.com/james-haddock/palworld-server-manager/assets/resized-image.png)
+![Banner](https://github.com/james-haddock/palworld-server-manager/assets/123553781/216e5b6a-4a14-4c44-a879-7090e1f9e076)
 
 ## Overview
 
