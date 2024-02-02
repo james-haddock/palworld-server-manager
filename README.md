@@ -13,8 +13,7 @@ The application automates the process of setting up a Palworld dedicated server.
 - **CPU** - 4 Cores (Recommended).
 
 - **RAM** - 16GB
-Recommend over 32GB for stable operation.
-It is possible to start the server with 8 GB, but the further you play, the server will crash due to out of memory.
+32GB recommended for stable operation.
 
 - **Network** - UDP Port 8211 (Default) Port forwarding required.
 
