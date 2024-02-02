@@ -14,7 +14,7 @@ The application automates the process of setting up a Palworld dedicated server.
 
 - **RAM** - 16GB minimum / 32GB recommended for stable operation.
 
-- **Network** - UDP Port 8211 (Default) Port forwarding required.
+- **Network** - UDP Port 8211 (Default).
 
 - **OS** - Windows 10 / 11.
 
