@@ -8,6 +8,20 @@ This application is a dedicated server manager for the game "Palworld". It's bui
 
 The application automates the process of setting up a Palworld dedicated server. It downloads and installs `steamcmd`, logs in anonymously, and downloads the Palworld server software. The application also provides a web-based user interface for managing the server.
 
+## Prerequisites
+
+- **CPU** - 4 Cores (Recommended).
+
+- **RAM** - 16GB
+Recommend over 32GB for stable operation.
+It is possible to start the server with 8 GB, but the further you play, the server will crash due to out of memory.
+
+- **Network** - UDP Port 8211 (Default) Port forwarding required.
+
+- **OS** - Windows 10 / 11.
+
+- **Installed Software** - Direct X and C++ runtime (Bundled in installer if not already installed).
+
 ## Features
 
 - **Automated Server Setup**: The application automatically downloads and installs `steamcmd` and the Palworld server software. No Steam account is required as the application logs in anonymously.
