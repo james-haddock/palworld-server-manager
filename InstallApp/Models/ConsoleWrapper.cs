@@ -9,4 +9,8 @@ public class ConsoleWrapper : IConsole
     {
         return Console.ReadLine();
     }
+    public ConsoleKeyInfo ReadKey()
+    {
+        return Console.ReadKey();
+    }
 }

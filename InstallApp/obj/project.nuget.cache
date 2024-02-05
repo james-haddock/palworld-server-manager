@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M0mt6pi8ju0cL25b68h3EyK5qWorXYhCLGf1Fx+nYK+ydqni1yWLy2pAtXRmF5voG6du3Ie/52mIWQ8gzuls4g==",
+  "dgSpecHash": "uvRMvMTv31Me72U07D3sM60gbQyeNYVhoHmpxKUBM5RDxUqUpphCgXR1wuAUwPKhxvjfd6RuqEQdyAp05pR/2w==",
   "success": true,
-  "projectFilePath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/InstallApp/InstallApp.csproj",
+  "projectFilePath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\InstallApp\\InstallApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

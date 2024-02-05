@@ -9,7 +9,7 @@ public class InstallSteamApp : IProcessManager
     private Process? process;
     private static readonly HttpClient httpClient = new HttpClient();
 
-    public void StartProcess(string exePath)
+    public void StartProcess(string exePath, string arguments = "")
     {
         if (!File.Exists(exePath))
         {
@@ -21,6 +21,7 @@ public class InstallSteamApp : IProcessManager
             StartInfo = new ProcessStartInfo
             {
                 FileName = exePath,
+                Arguments = arguments,
                 RedirectStandardOutput = true,
                 RedirectStandardInput = true,
                 UseShellExecute = false,
@@ -41,6 +42,7 @@ public class InstallSteamApp : IProcessManager
                 Console.WriteLine(line);
             }
         });
+        process.WaitForExit();
     }
 
     public void SendCommand(string command)
@@ -70,7 +72,7 @@ public class InstallSteamApp : IProcessManager
         return localPath;
     }
 
-    public void RunExecutable(string filePath)
+    public void RunExecutable(string filePath, bool noWindow=true)
     {
         if (!File.Exists(filePath))
         {
@@ -82,8 +84,8 @@ public class InstallSteamApp : IProcessManager
             StartInfo = new ProcessStartInfo
             {
                 FileName = filePath,
-                UseShellExecute = false,
-                CreateNoWindow = true,
+                UseShellExecute = true,
+                CreateNoWindow = noWindow,
             }
         };
 
@@ -91,5 +93,7 @@ public class InstallSteamApp : IProcessManager
         {
             throw new InvalidOperationException("Failed to start the process.");
         }
+
     }
+    
 }
