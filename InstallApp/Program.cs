@@ -1,6 +1,7 @@
 using System;
 using static SteamCmdService;
 using System.IO;
+using System.Threading.Tasks;
 
 public class Program
 {
@@ -33,10 +34,23 @@ public class Program
                 return;
             }
 
-            await SteamCmdService.DownloadSteamCmd();
+            console.WriteLine("Would you like to download SteamCMD? (y/n)");
+            string installSteamCMD = console.ReadLine();
+            if (installSteamCMD.ToLower() == "y")
+            {
+                console.WriteLine("Downloading SteamCMD.");
+                string steamDownload = await SteamCmdService.DownloadSteamCmd();
+                console.WriteLine(steamDownload);
+            }
 
-            processManager.StartProcess("steamcmd/steamcmd.exe");
-            processManager.SendCommand("steamcmd +login anonymous +app_update 2394010 validate +quit");
+
+            console.WriteLine("Would you like install Palworld Server? (y/n)");
+            string palworldInstall = console.ReadLine();
+            if (palworldInstall.ToLower() == "y")
+            {
+            console.WriteLine("Installing latest version of Palworld Server");
+            processManager.StartProcess("steamcmd/steamcmd.exe", "+login anonymous +app_update 2394010 validate +quit");
+            }
 
             if (!vcRedistChecker.IsVCRedistInstalled())
             {
@@ -44,34 +58,38 @@ public class Program
                 string input = console.ReadLine();
                 if (input.ToLower() == "y")
                 {
-                    var vcRedistPath = await ((InstallSteamApp)processManager).DownloadFile("https://download.microsoft.com/download/.../vc_redist.x64.exe");
+                    var vcRedistPath = await ((InstallSteamApp)processManager).DownloadFile("https://aka.ms/vs/17/release/vc_redist.x64.exe");
                     ((InstallSteamApp)processManager).RunExecutable(vcRedistPath);
-                    Log("Microsoft Visual C++ Runtime installed.");
+                console.WriteLine("Once Visual C++ Runtime installation is complete press any button to continue.");
+                console.ReadKey();
                 }
             }
             else
             {
                 Log("Microsoft Visual C++ Runtime is already installed.");
+                console.WriteLine("Microsoft Visual C++ Runtime is already installed.");
             }
 
-            if (!directXChecker.IsDirectXInstalled())
+            string installDirectX;
+            console.WriteLine("DirectX 9 Runtime needed to run Palworld Server. Would you like to install it? (y/n)");
+            installDirectX = console.ReadLine();
+            if (installDirectX.ToLower() == "y")
             {
-                console.WriteLine("DirectX Runtime is not installed. Would you like to install it? (y/n)");
-                string input = console.ReadLine();
-                if (input.ToLower() == "y")
-                {
-                    var directXPath = await ((InstallSteamApp)processManager).DownloadFile("https://download.microsoft.com/download/.../dxwebsetup.exe");
-                    ((InstallSteamApp)processManager).RunExecutable(directXPath);
-                    Log("DirectX Runtime installed.");
-                }
+                var directXPath = await ((InstallSteamApp)processManager).DownloadFile("https://download.microsoft.com/download/1/7/1/1718CCC4-6315-4D8E-9543-8E28A4E18C4C/dxwebsetup.exe");
+                ((InstallSteamApp)processManager).RunExecutable(directXPath);
+                console.WriteLine("Once DirectX 9 Runtime installation is complete press any button to continue.");
+                console.ReadKey();
             }
             else
             {
-                Log("DirectX Runtime is already installed.");
+                Log("DirectX 9 Runtime installation skipped");
+                console.WriteLine("DirectX 9 Runtime installation skipped");
             }
 
             console.WriteLine("Installation complete.");
             Log("Installation complete.");
+            console.WriteLine("Press any key to exit.");
+            console.ReadKey();
         }
         catch (Exception ex)
         {
@@ -79,6 +97,7 @@ public class Program
             Log($"An error occurred: {ex.Message}");
         }
     }
+
 
     private void Log(string message)
     {
