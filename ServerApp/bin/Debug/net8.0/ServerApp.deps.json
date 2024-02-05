@@ -11,6 +11,7 @@
           "HotChocolate.AspNetCore": "13.8.1",
           "HotChocolate.AspNetCore.Playground": "10.5.5",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
+          "Open.NAT": "2.1.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -502,6 +503,14 @@
           }
         }
       },
+      "Open.NAT/2.1.0": {
+        "runtime": {
+          "lib/net45/Open.Nat.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -943,6 +952,13 @@
       "sha512": "sha512-rURwggB+QZYcSVbDr7HSdhw/FELvMlriW10OeOzjPT7pstefMo7IThhtNtDudxbXhW+lj0NfX72Ka5EDsG8x6w==",
       "path": "microsoft.openapi/1.4.3",
       "hashPath": "microsoft.openapi.1.4.3.nupkg.sha512"
+    },
+    "Open.NAT/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cFa5GY3a1LYpgyCkCfi4kY3XyArNNGjx36tQVfY9bQEXQBo8zx9rFKkDrDjOEupy31FPPH/mqLClddLNUl41hQ==",
+      "path": "open.nat/2.1.0",
+      "hashPath": "open.nat.2.1.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",

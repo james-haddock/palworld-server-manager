@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj": {}
+    "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj": {}
   },
   "projects": {
-    "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj": {
+    "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
         "projectName": "ServerApp",
-        "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
-        "packagesPath": "/Users/jameshaddock/.nuget/packages/",
-        "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/",
+        "projectPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
+        "packagesPath": "C:\\Users\\jhadd\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jhadd\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "Open.Nat": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
@@ -74,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

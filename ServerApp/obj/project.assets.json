@@ -895,6 +895,19 @@
           }
         }
       },
+      "Open.NAT/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Open.Nat.dll": {
+            "related": ".XML"
+          }
+        },
+        "runtime": {
+          "lib/net45/Open.Nat.dll": {
+            "related": ".XML"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.4.0": {
         "type": "package",
         "dependencies": {
@@ -2372,6 +2385,23 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "Open.NAT/2.1.0": {
+      "sha512": "cFa5GY3a1LYpgyCkCfi4kY3XyArNNGjx36tQVfY9bQEXQBo8zx9rFKkDrDjOEupy31FPPH/mqLClddLNUl41hQ==",
+      "type": "package",
+      "path": "open.nat/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Open.Nat.XML",
+        "lib/net35/Open.Nat.dll",
+        "lib/net35/System.Threading.dll",
+        "lib/net35/System.Threading.xml",
+        "lib/net45/Open.Nat.XML",
+        "lib/net45/Open.Nat.dll",
+        "open.nat.2.1.0.nupkg.sha512",
+        "open.nat.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "sha512": "eUBr4TW0up6oKDA5Xwkul289uqSMgY0xGN4pnbOIBqCcN9VKGGaPvHX3vWaG/hvocfGDP+MGzMA0bBBKz2fkmQ==",
       "type": "package",
@@ -2878,23 +2908,24 @@
       "HotChocolate.AspNetCore >= 13.8.1",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
+      "Open.Nat >= 2.1.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "/Users/jameshaddock/.nuget/packages/": {}
+    "C:\\Users\\jhadd\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "projectUniqueName": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
       "projectName": "ServerApp",
-      "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
-      "packagesPath": "/Users/jameshaddock/.nuget/packages/",
-      "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/",
+      "projectPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
+      "packagesPath": "C:\\Users\\jhadd\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\jhadd\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2930,6 +2961,10 @@
             "target": "Package",
             "version": "[8.0.1, )"
           },
+          "Open.Nat": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
@@ -2954,8 +2989,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Open.NAT 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Open.NAT",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
