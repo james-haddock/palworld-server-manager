@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jhadd\\.nuget\\packages\\": {}
+    "/Users/jameshaddock/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\InstallApp\\InstallApp.csproj",
+      "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/InstallApp/InstallApp.csproj",
       "projectName": "InstallApp",
-      "projectPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\InstallApp\\InstallApp.csproj",
-      "packagesPath": "C:\\Users\\jhadd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\InstallApp\\obj\\",
+      "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/InstallApp/InstallApp.csproj",
+      "packagesPath": "/Users/jameshaddock/.nuget/packages/",
+      "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/InstallApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jhadd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -62,7 +62,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

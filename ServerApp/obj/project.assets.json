@@ -503,6 +503,28 @@
           }
         }
       },
+      "ini-parser/2.5.2": {
+        "type": "package",
+        "compile": {
+          "lib/net20/INIFileParser.dll": {
+            "related": ".dll.mdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net20/INIFileParser.dll": {
+            "related": ".dll.mdb;.xml"
+          }
+        }
+      },
+      "INIParser/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/INIParser.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/INIParser.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -1764,6 +1786,32 @@
         "strawberryshake-signet.png"
       ]
     },
+    "ini-parser/2.5.2": {
+      "sha512": "hp3gKmC/14+6eKLgv7Jd1Z7OV86lO+tNfOXr/stQbwmRhdQuXVSvrRAuAe7G5+lwhkov0XkqZ8/bn1PYWMx6eg==",
+      "type": "package",
+      "path": "ini-parser/2.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ini-parser.2.5.2.nupkg.sha512",
+        "ini-parser.nuspec",
+        "lib/net20/INIFileParser.dll",
+        "lib/net20/INIFileParser.dll.mdb",
+        "lib/net20/INIFileParser.xml"
+      ]
+    },
+    "INIParser/1.0.1": {
+      "sha512": "gO/vSgpyNel4h6O3sBPS/bRPwd+aOBke4RLImqTtKI+hmSucRGevyN+HRwpAuN8X+gUy+mL48vExWe5dYiaj0A==",
+      "type": "package",
+      "path": "iniparser/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "iniparser.1.0.1.nupkg.sha512",
+        "iniparser.nuspec",
+        "lib/net6.0/INIParser.dll"
+      ]
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
       "sha512": "76cKcp2pWhvdV2TXTqMg/DyW7N6cDzTEhtL8vVWFShQN+Ylwv3eO/vUQr2BS3Hz4IZHEpL+FOo2T+MtymHDqDQ==",
       "type": "package",
@@ -2907,25 +2955,27 @@
     "net8.0": [
       "HotChocolate.AspNetCore >= 13.8.1",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
+      "IniParser >= 1.0.1",
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
       "Open.Nat >= 2.1.0",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Swashbuckle.AspNetCore >= 6.4.0",
+      "ini-parser >= 2.5.2"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jhadd\\.nuget\\packages\\": {}
+    "/Users/jameshaddock/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
+      "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
       "projectName": "ServerApp",
-      "projectPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\ServerApp.csproj",
-      "packagesPath": "C:\\Users\\jhadd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jhadd\\Documents\\Coding\\Projects\\palworld-server-manager\\ServerApp\\obj\\",
+      "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "packagesPath": "/Users/jameshaddock/.nuget/packages/",
+      "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jhadd\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -2957,6 +3007,10 @@
             "target": "Package",
             "version": "[10.5.5, )"
           },
+          "IniParser": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
             "version": "[8.0.1, )"
@@ -2968,6 +3022,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "ini-parser": {
+            "target": "Package",
+            "version": "[2.5.2, )"
           }
         },
         "imports": [
@@ -2989,11 +3047,21 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'ini-parser 2.5.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "ini-parser",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
     {
       "code": "NU1701",
       "level": "Warning",

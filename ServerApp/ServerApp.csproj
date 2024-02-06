@@ -10,6 +10,8 @@
   <ItemGroup>
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.8.1" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
+    <PackageReference Include="ini-parser" Version="2.5.2" />
+    <PackageReference Include="IniParser" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
     <PackageReference Include="Open.Nat" Version="2.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
