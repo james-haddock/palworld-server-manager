@@ -6,7 +6,7 @@
 
 This application is a dedicated server manager for the game "Palworld". It's built with ASP.NET for the backend and React with Vite for the frontend. The application communicates with the frontend via GraphQL.
 
-The application automates the process of setting up a Palworld dedicated server. It downloads and installs `steamcmd`, logs in anonymously, and downloads the Palworld server software. The application also provides a web-based user interface for managing the server.
+The application automates the process of setting up a Palworld dedicated server. It downloads and installs `steamcmd`, logs in anonymously, and downloads the Palworld server software. The application also provides a web-based user interface for managing the server locally or remotely.
 
 ## Prerequisites
 
