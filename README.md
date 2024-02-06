@@ -50,7 +50,7 @@ Optional use of UPnP to automatically configure port forwarding on the user's ro
 
 Server settings can be changed through the web interface. The settings are stored in a configuration file, and changes are applied by rebooting the server.
 
-Automatic software updates can be enabled whenever a new version is released.
+Automatic software updates can be enabled to deploy new versions on release.
 
 Regular automated backups of the server and save files by copying them to a backup directory at regular intervals.
 
