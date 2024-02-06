@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "npZSUcz43kco9BBUZsaz7jJCLV3WOWAbEd8VTJ7KR5Z5vgI7QmmeMRAvORry36oZmRWjURLVpVPGthVn8d2UVw==",
+  "dgSpecHash": "BSz7oPtMrr0p7sbT37ukR3vIsgbQV7InaOVSsEuzrJqFTPvBaxlDzw2YXn4ajypSUJGvr/xmZS5ycPyD0t1smw==",
   "success": true,
   "projectFilePath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
   "expectedPackageFiles": [
@@ -33,8 +33,6 @@
     "/Users/jameshaddock/.nuget/packages/hotchocolate.utilities/13.8.1/hotchocolate.utilities.13.8.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/hotchocolate.utilities.dependencyinjection/13.8.1/hotchocolate.utilities.dependencyinjection.13.8.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/hotchocolate.validation/13.8.1/hotchocolate.validation.13.8.1.nupkg.sha512",
-    "/Users/jameshaddock/.nuget/packages/ini-parser/2.5.2/ini-parser.2.5.2.nupkg.sha512",
-    "/Users/jameshaddock/.nuget/packages/iniparser/1.0.1/iniparser.1.0.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.aspnetcore.hosting.abstractions/2.1.1/microsoft.aspnetcore.hosting.abstractions.2.1.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.aspnetcore.hosting.server.abstractions/2.1.1/microsoft.aspnetcore.hosting.server.abstractions.2.1.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.aspnetcore.http/2.1.1/microsoft.aspnetcore.http.2.1.1.nupkg.sha512",
@@ -76,16 +74,6 @@
     "/Users/jameshaddock/.nuget/packages/yarp.reverseproxy/2.0.1/yarp.reverseproxy.2.0.1.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'ini-parser 2.5.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "ini-parser",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
     {
       "code": "NU1701",
       "level": "Warning",
