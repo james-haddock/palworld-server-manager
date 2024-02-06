@@ -42,19 +42,19 @@ The application automates the process of setting up a Palworld dedicated server.
 
 The application is built with ASP.NET for the backend and React with Vite for the frontend. It uses GraphQL for communication between the frontend and backend.
 
-The application uses `steamcmd` to download and install the Palworld server software. It logs in to Steam anonymously, so no Steam account is required.
+`steamcmd` is used to download and install the Palworld server software. It logs in to Steam anonymously, so no Steam account is required.
 
-The application provides a web-based user interface for managing the server. The interface is built with React and Vite, and communicates with the backend via GraphQL.
+A web-based user interface is provided for managing the server. The interface is built with React and Vite, and communicates with the backend via GraphQL.
 
-The application uses UPnP to automatically configure port forwarding on the user's router, if the router supports UPnP. This is done using a UPnP library.
+Optional use of UPnP to automatically configure port forwarding on the user's router, if the router supports UPnP. This is done using a UPnP library.
 
-The server settings can be changed through the web interface. The settings are stored in a configuration file, and changes are applied by rebooting the server.
+Server settings can be changed through the web interface. The settings are stored in a configuration file, and changes are applied by rebooting the server.
 
-The application automatically updates the server software by running `steamcmd` with the `app_update` command.
+Automatic software updates can be enabled whenever a new version is released.
 
-The application automatically backs up the server and save files by copying them to a backup directory at regular intervals.
+Regular automated backups of the server and save files by copying them to a backup directory at regular intervals.
 
-The application can be accessed remotely from anywhere via the internet. This is done using a secure connection.
+The server instance can be accessed remotely from anywhere via the internet.
 
 ## How to Use
 
