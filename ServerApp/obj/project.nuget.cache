@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "npZSUcz43kco9BBUZsaz7jJCLV3WOWAbEd8VTJ7KR5Z5vgI7QmmeMRAvORry36oZmRWjURLVpVPGthVn8d2UVw==",
+  "dgSpecHash": "n+AKaDSWkgzlpoP6uBEhajIw1sav9XEuvxSciXbIXpgJRLVBsjSbBPRzdA1sUk7FvWBcRkVkoiuO+2jD5TQ0lQ==",
   "success": true,
   "projectFilePath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
   "expectedPackageFiles": [
     "/Users/jameshaddock/.nuget/packages/bananacakepop.middleware/13.0.0/bananacakepop.middleware.13.0.0.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/corercon/5.3.2/corercon.5.3.2.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/greendonut/13.8.1/greendonut.13.8.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/hotchocolate/13.8.1/hotchocolate.13.8.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/hotchocolate.abstractions/13.8.1/hotchocolate.abstractions.13.8.1.nupkg.sha512",
@@ -51,7 +52,8 @@
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.fileproviders.abstractions/2.1.1/microsoft.extensions.fileproviders.abstractions.2.1.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.fileproviders.embedded/2.1.1/microsoft.extensions.fileproviders.embedded.2.1.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.hosting.abstractions/2.1.1/microsoft.extensions.hosting.abstractions.2.1.1.nupkg.sha512",
-    "/Users/jameshaddock/.nuget/packages/microsoft.extensions.logging.abstractions/2.1.1/microsoft.extensions.logging.abstractions.2.1.1.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/microsoft.extensions.logging/8.0.0/microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.objectpool/8.0.0/microsoft.extensions.objectpool.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
