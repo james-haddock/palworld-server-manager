@@ -9,9 +9,6 @@
 
   <ItemGroup>
     <PackageReference Include="CoreRCON" Version="5.3.2" />
-    <PackageReference Include="GraphQL" Version="7.8.0" />
-    <PackageReference Include="GraphQL.AspNet" Version="1.3.1" />
-    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="7.7.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.8.1" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
     <PackageReference Include="ini-parser" Version="2.5.2" />
@@ -19,6 +16,8 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
     <PackageReference Include="Open.Nat" Version="2.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.IO.Abstractions" Version="20.0.15" />
+    <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="20.0.15" />
   </ItemGroup>
 
 </Project>

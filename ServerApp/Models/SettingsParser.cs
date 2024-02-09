@@ -1,39 +1,91 @@
-using IniParser;
-using IniParser.Model;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Abstractions;
+using System.Linq;
 
-public class SettingsParser
+public class IniSettingsService
 {
-    private IniData _data;
+    private readonly string _filePath;
+    private readonly IFileSystem _fileSystem;
+    private List<KeyValuePair<string, string>> _settings;
 
-    public SettingsParser(string settingsPath)
+    public IniSettingsService(string filePath, IFileSystem fileSystem)
     {
-        var parser = new FileIniDataParser();
-        _data = parser.ReadFile(settingsPath);
+        _filePath = filePath;
+        _fileSystem = fileSystem;
+        _settings = ParseIniFile();
     }
 
-    public string GetSetting(string section, string key)
+    private List<KeyValuePair<string, string>> ParseIniFile()
     {
-        return _data[section][key];
+        var lines = _fileSystem.File.ReadAllLines(_filePath);
+        var settingsLine = lines.FirstOrDefault(line => line.StartsWith("OptionSettings="));
+        if (settingsLine == null)
+        {
+            throw new Exception("OptionSettings not found in the INI file.");
+        }
+
+        var settingsString = settingsLine.Substring("OptionSettings=(".Length, settingsLine.Length - "OptionSettings=(".Length - 1);
+        var settingsPairs = settingsString.Split(',');
+
+        var settings = new List<KeyValuePair<string, string>>();
+        foreach (var pair in settingsPairs)
+        {
+            var keyValue = pair.Split('=');
+            if (keyValue.Length != 2)
+            {
+                throw new Exception($"Invalid key-value pair: {pair}");
+            }
+
+            settings.Add(new KeyValuePair<string, string>(keyValue[0], keyValue[1]));
+        }
+
+        return settings;
     }
 
-    public void SetSetting(string section, string key, string value)
+    public List<KeyValuePair<string, string>> GetServerSettings()
     {
-        _data[section][key] = value;
+        return new List<KeyValuePair<string, string>>(_settings);
     }
 
-    public IniData GetAllSettings()
+        public string GetSetting(string key)
     {
-        return _data;
+        var setting = _settings.FirstOrDefault(kv => kv.Key == key);
+        if (setting.Equals(default(KeyValuePair<string, string>)))
+        {
+            throw new Exception($"Key not found: {key}");
+        }
+
+        return setting.Value;
     }
 
-    public void UpdateAllSettings(IniData newSettings)
+    public void UpdateSetting(string key, string value)
     {
-        _data = newSettings;
+        var index = _settings.FindIndex(kv => kv.Key == key);
+        if (index == -1)
+        {
+            throw new Exception($"Key not found: {key}");
+        }
+
+        _settings[index] = new KeyValuePair<string, string>(key, value);
     }
 
-    public void SaveSettings(string settingsPath)
+    public void SaveSettings()
     {
-        var parser = new FileIniDataParser();
-        parser.WriteFile(settingsPath, _data);
+        var settingsString = string.Join(",", _settings.Select(kv => $"{kv.Key}={kv.Value}"));
+        var settingsLine = $"OptionSettings=({settingsString})";
+
+        var lines = _fileSystem.File.ReadAllLines(_filePath);
+        for (int i = 0; i < lines.Length; i++)
+        {
+            if (lines[i].StartsWith("OptionSettings="))
+            {
+                lines[i] = settingsLine;
+                break;
+            }
+        }
+
+        _fileSystem.File.WriteAllLines(_filePath, lines);
     }
 }

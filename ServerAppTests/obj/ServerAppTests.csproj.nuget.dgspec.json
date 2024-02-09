@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CoreRCON": {
+              "target": "Package",
+              "version": "[5.3.2, )"
+            },
             "HotChocolate.AspNetCore": {
               "target": "Package",
               "version": "[13.8.1, )"
@@ -46,13 +50,33 @@
               "target": "Package",
               "version": "[10.5.5, )"
             },
+            "IniParser": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "Open.Nat": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[20.0.15, )"
+            },
+            "System.IO.Abstractions.TestingHelpers": {
+              "target": "Package",
+              "version": "[20.0.15, )"
+            },
+            "ini-parser": {
+              "target": "Package",
+              "version": "[2.5.2, )"
             }
           },
           "imports": [
