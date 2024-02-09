@@ -200,3 +200,11 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/obj/D
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/System.IO.Abstractions.TestingHelpers.dll
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/CoreRCON.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/INIFileParser.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/INIParser.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/System.IO.Abstractions.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/System.IO.Abstractions.TestingHelpers.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll

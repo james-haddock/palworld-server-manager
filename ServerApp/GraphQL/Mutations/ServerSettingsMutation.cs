@@ -1,4 +1,4 @@
-
+[ExtendObjectType("Mutation")]
 public class ServerSettingsMutation
 {
     private readonly IniSettingsService _iniSettingsService;

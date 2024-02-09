@@ -11,7 +11,9 @@ builder.Services
         new IniSettingsService("./DefaultPalWorldSettings.ini", sp.GetRequiredService<IFileSystem>()))
     .AddGraphQLServer()
     .AddQueryType<ServerSettingsQuery>()
-    .AddMutationType<ServerSettingsMutation>()
+    .AddMutationType(d => d.Name("Mutation"))
+        .AddTypeExtension<ServerSettingsMutation>()
+        .AddTypeExtension<ServerControlMutation>()
     .AddType<ServerSetting>();
 
 var app = builder.Build();
