@@ -11,7 +11,7 @@ builder.Services
         new IniSettingsService("./DefaultPalWorldSettings.ini", sp.GetRequiredService<IFileSystem>()))
     .AddSingleton<ServerControlService>()
     .AddSingleton<RCONService>(sp => 
-        new RCONService("localhost", "25575", "test0908", "/ServerApp/Models/RCON/Console/rcon.exe"))
+        new RCONService("localhost", "25575", "test0303", "./Models/RCON/Console/rcon.exe"))
     .AddGraphQLServer()
     .AddQueryType<ServerSettingsQuery>()
     .AddMutationType(d => d.Name("Mutation"))

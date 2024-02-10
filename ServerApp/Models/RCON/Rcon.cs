@@ -29,7 +29,7 @@ public class RCONService
             StartInfo = new ProcessStartInfo
             {
                 FileName = rconFilePath,
-                Arguments = $" -a {_ipAddress}:{_port} -p {_password} command {command}",
+                Arguments = $" -a {_ipAddress}:{_port} -p {_password} {command}",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false,
@@ -49,6 +49,7 @@ public class RCONService
             if (!string.IsNullOrEmpty(error))
             {
                 Console.WriteLine($"Error: {error}");
+                return null;
             }
 
             return result;
