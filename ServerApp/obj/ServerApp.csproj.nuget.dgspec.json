@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[20.0.15, )"
             },
+            "YamlDotNet": {
+              "target": "Package",
+              "version": "[15.1.1, )"
+            },
             "ini-parser": {
               "target": "Package",
               "version": "[2.5.2, )"
