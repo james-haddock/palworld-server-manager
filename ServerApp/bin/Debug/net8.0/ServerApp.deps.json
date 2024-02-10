@@ -17,6 +17,7 @@
           "Swashbuckle.AspNetCore": "6.4.0",
           "System.IO.Abstractions": "20.0.15",
           "System.IO.Abstractions.TestingHelpers": "20.0.15",
+          "YamlDotNet": "15.1.1",
           "ini-parser": "2.5.2"
         },
         "runtime": {
@@ -669,6 +670,14 @@
           }
         }
       },
+      "YamlDotNet/15.1.1": {
+        "runtime": {
+          "lib/net8.0/YamlDotNet.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.1.1.0"
+          }
+        }
+      },
       "Yarp.ReverseProxy/2.0.1": {
         "dependencies": {
           "System.IO.Hashing": "7.0.0"
@@ -1219,6 +1228,13 @@
       "sha512": "sha512-ylbWPBEeX8oS2Uj8pCOyFPfBRJ1JHc56YyHEa1IaaYpW4QDH5zw3H/CRm2R6V0PWCG+Fx+tpb09vkD6Y97UB2Q==",
       "path": "testableio.system.io.abstractions.wrappers/20.0.15",
       "hashPath": "testableio.system.io.abstractions.wrappers.20.0.15.nupkg.sha512"
+    },
+    "YamlDotNet/15.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GjK+j6XmaFoLhdGpv5jVkt1wbUwVvZaWsUEPzr6gfA/VaEgYMlwZXeVyWJOqFK9U41mSocZvSuLkEFFhVEj0HA==",
+      "path": "yamldotnet/15.1.1",
+      "hashPath": "yamldotnet.15.1.1.nupkg.sha512"
     },
     "Yarp.ReverseProxy/2.0.1": {
       "type": "package",
