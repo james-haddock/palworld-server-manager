@@ -1,45 +1,70 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 public class ServerControlService
 {
-    private Process _serverProcess;
+    private Process? _serverProcess;
     private string _serverExecutable;
+    private readonly ILogger<ServerControlService> _logger;
 
-    public ServerControlService(string serverPath)
+    public ServerControlService(ILogger<ServerControlService> logger)
     {
-        _serverExecutable = serverPath;
+        _serverExecutable = "../InstallApp/bin/Debug/net8.0/steamcmd/steamapps/common/PalServer/PalServer.exe";
+        _logger = logger;
     }
 
     public void StartServer()
     {
         Task.Run(() =>
         {
-            _serverProcess = new Process
+            try
             {
-                StartInfo = new ProcessStartInfo
+                _serverProcess = new Process
                 {
-                    FileName = _serverExecutable,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                }
-            };
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = _serverExecutable,
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = false,
+                    }
+                };
 
-            _serverProcess.Start();
-            _serverProcess.WaitForExit();
+                _serverProcess.Start();
+                _logger.LogInformation("Server started successfully.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to start the server.");
+            }
         });
     }
 
     public void StopServer()
     {
-        _serverProcess?.CloseMainWindow();
-        _serverProcess = null;
+        try
+        {
+            _serverProcess?.CloseMainWindow();
+            _logger.LogInformation("Server stopped successfully.");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to stop the server.");
+        }
     }
 
     public void RestartServer()
     {
-        StopServer();
-        StartServer();
+        try
+        {
+            StopServer();
+            StartServer();
+            _logger.LogInformation("Server restarted successfully.");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to restart the server.");
+        }
     }
 }
