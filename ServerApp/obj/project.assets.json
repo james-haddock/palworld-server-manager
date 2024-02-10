@@ -1088,6 +1088,39 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
+      "System.IO.Abstractions/20.0.15": {
+        "type": "package",
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15",
+          "TestableIO.System.IO.Abstractions.Wrappers": "20.0.15"
+        },
+        "compile": {
+          "lib/net8.0/System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.IO.Abstractions.TestingHelpers/20.0.15": {
+        "type": "package",
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions.TestingHelpers": "20.0.15"
+        },
+        "compile": {
+          "lib/net8.0/System.IO.Abstractions.TestingHelpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Abstractions.TestingHelpers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.IO.Hashing/7.0.0": {
         "type": "package",
         "compile": {
@@ -1184,6 +1217,52 @@
         },
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "TestableIO.System.IO.Abstractions/20.0.15": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.TestingHelpers/20.0.15": {
+        "type": "package",
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15",
+          "TestableIO.System.IO.Abstractions.Wrappers": "20.0.15"
+        },
+        "compile": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/20.0.15": {
+        "type": "package",
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15"
+        },
+        "compile": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Yarp.ReverseProxy/2.0.1": {
@@ -2856,6 +2935,56 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.IO.Abstractions/20.0.15": {
+      "sha512": "IcKGQnTDIdDzZreoU5zkiabLEV1O5TiAuNCVCUzVwXPqODO1Ne2kZGSufPWPVP5xFmMgPCvMXH4eQqVGwSG6Cg==",
+      "type": "package",
+      "path": "system.io.abstractions/20.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net462/System.IO.Abstractions.dll",
+        "lib/net462/System.IO.Abstractions.xml",
+        "lib/net6.0/System.IO.Abstractions.dll",
+        "lib/net6.0/System.IO.Abstractions.xml",
+        "lib/net7.0/System.IO.Abstractions.dll",
+        "lib/net7.0/System.IO.Abstractions.xml",
+        "lib/net8.0/System.IO.Abstractions.dll",
+        "lib/net8.0/System.IO.Abstractions.xml",
+        "lib/netstandard2.0/System.IO.Abstractions.dll",
+        "lib/netstandard2.0/System.IO.Abstractions.xml",
+        "lib/netstandard2.1/System.IO.Abstractions.dll",
+        "lib/netstandard2.1/System.IO.Abstractions.xml",
+        "system.io.abstractions.20.0.15.nupkg.sha512",
+        "system.io.abstractions.nuspec"
+      ]
+    },
+    "System.IO.Abstractions.TestingHelpers/20.0.15": {
+      "sha512": "Or7WQBhwAIvlzMKXod/XfBoqHOcRbmTufqG1FDDUF1U+n4ufGrrgSbYiISJJW11QgWqhwG9qaepGIQXJd7WUIg==",
+      "type": "package",
+      "path": "system.io.abstractions.testinghelpers/20.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net462/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net462/System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net6.0/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net6.0/System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net7.0/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net7.0/System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net8.0/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net8.0/System.IO.Abstractions.TestingHelpers.xml",
+        "lib/netstandard2.0/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/netstandard2.0/System.IO.Abstractions.TestingHelpers.xml",
+        "lib/netstandard2.1/System.IO.Abstractions.TestingHelpers.dll",
+        "lib/netstandard2.1/System.IO.Abstractions.TestingHelpers.xml",
+        "system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512",
+        "system.io.abstractions.testinghelpers.nuspec"
+      ]
+    },
     "System.IO.Hashing/7.0.0": {
       "sha512": "sDnWM0N3AMCa86LrKTWeF3BZLD2sgWyYUc7HL6z4+xyDZNQRwzmxbo4qP2rX2MqC+Sy1/gOSRDah5ltxY5jPxw==",
       "type": "package",
@@ -3081,6 +3210,81 @@
         "version.txt"
       ]
     },
+    "TestableIO.System.IO.Abstractions/20.0.15": {
+      "sha512": "ohYr5VOrTGO+8ZVvaWZGg5vn7wQIYmAT35pjrxZ/NNbC4yamMw2JYDFv73rhpOjE/7PkuwV2Mk9GMR6hY527Gw==",
+      "type": "package",
+      "path": "testableio.system.io.abstractions/20.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net462/TestableIO.System.IO.Abstractions.dll",
+        "lib/net462/TestableIO.System.IO.Abstractions.xml",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.dll",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.xml",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.dll",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.xml",
+        "testableio.system.io.abstractions.20.0.15.nupkg.sha512",
+        "testableio.system.io.abstractions.nuspec"
+      ]
+    },
+    "TestableIO.System.IO.Abstractions.TestingHelpers/20.0.15": {
+      "sha512": "Usbm1pW5TljGIt++b5e2BsxZhG19u0b4Y8cZTuPq4JfbGjv1G6GqPpTD7ygqKloFZOaB3jQjhLIYUjTLlC/+2Q==",
+      "type": "package",
+      "path": "testableio.system.io.abstractions.testinghelpers/20.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net462/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net462/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.TestingHelpers.dll",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.TestingHelpers.xml",
+        "testableio.system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512",
+        "testableio.system.io.abstractions.testinghelpers.nuspec"
+      ]
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/20.0.15": {
+      "sha512": "ylbWPBEeX8oS2Uj8pCOyFPfBRJ1JHc56YyHEa1IaaYpW4QDH5zw3H/CRm2R6V0PWCG+Fx+tpb09vkD6Y97UB2Q==",
+      "type": "package",
+      "path": "testableio.system.io.abstractions.wrappers/20.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon_256x256.png",
+        "lib/net462/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net462/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net6.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net7.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/netstandard2.0/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.Wrappers.dll",
+        "lib/netstandard2.1/TestableIO.System.IO.Abstractions.Wrappers.xml",
+        "testableio.system.io.abstractions.wrappers.20.0.15.nupkg.sha512",
+        "testableio.system.io.abstractions.wrappers.nuspec"
+      ]
+    },
     "Yarp.ReverseProxy/2.0.1": {
       "sha512": "op7vBwONPFeR1PYxeLw+RLqSodODDX8RWd0OinLGMVIq6yi1q9mv1j56ImuyZgiAToksiC0Dc7jbRUZ9I+jvFA==",
       "type": "package",
@@ -3107,6 +3311,8 @@
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
       "Open.Nat >= 2.1.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
+      "System.IO.Abstractions >= 20.0.15",
+      "System.IO.Abstractions.TestingHelpers >= 20.0.15",
       "ini-parser >= 2.5.2"
     ]
   },
@@ -3174,6 +3380,14 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.4.0, )"
+          },
+          "System.IO.Abstractions": {
+            "target": "Package",
+            "version": "[20.0.15, )"
+          },
+          "System.IO.Abstractions.TestingHelpers": {
+            "target": "Package",
+            "version": "[20.0.15, )"
           },
           "ini-parser": {
             "target": "Package",

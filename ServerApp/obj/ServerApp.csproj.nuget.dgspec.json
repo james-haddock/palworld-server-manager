@@ -66,6 +66,14 @@
               "target": "Package",
               "version": "[6.4.0, )"
             },
+            "System.IO.Abstractions": {
+              "target": "Package",
+              "version": "[20.0.15, )"
+            },
+            "System.IO.Abstractions.TestingHelpers": {
+              "target": "Package",
+              "version": "[20.0.15, )"
+            },
             "ini-parser": {
               "target": "Package",
               "version": "[2.5.2, )"

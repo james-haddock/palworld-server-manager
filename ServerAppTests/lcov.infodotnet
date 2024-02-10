@@ -1,0 +1,274 @@
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/GraphQL/Mutation.cs
+FN:14,System.Void Mutation::UpdateServerSettings(System.String,System.String)
+FNDA:0,System.Void Mutation::UpdateServerSettings(System.String,System.String)
+DA:15,0
+DA:16,0
+DA:17,0
+DA:18,0
+FN:8,System.Void Mutation::.ctor(IniSettingsService)
+FNDA:0,System.Void Mutation::.ctor(IniSettingsService)
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+LF:8
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/GraphQL/Query.cs
+FN:13,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> Query::getServerSettings()
+FNDA:0,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> Query::getServerSettings()
+DA:14,0
+FN:8,System.Void Query::.ctor(IniSettingsService)
+FNDA:0,System.Void Query::.ctor(IniSettingsService)
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+LF:5
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/GraphQL/Types/SettingType.cs
+FN:2,System.String Setting::get_Key()
+FNDA:0,System.String Setting::get_Key()
+DA:3,0
+FN:3,System.String Setting::get_Value()
+FNDA:0,System.String Setting::get_Value()
+DA:4,0
+FN:9,System.Void SettingType::Configure(HotChocolate.Types.IObjectTypeDescriptor`1<Setting>)
+FNDA:0,System.Void SettingType::Configure(HotChocolate.Types.IObjectTypeDescriptor`1<Setting>)
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+LF:6
+LH:0
+BRF:0
+BRH:0
+FNF:3
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/Models/PortForwarder.cs
+FN:9,System.Void UPnPPortForwarder::.ctor()
+FNDA:0,System.Void UPnPPortForwarder::.ctor()
+DA:10,0
+DA:11,0
+DA:12,0
+DA:13,0
+DA:14,0
+DA:15,0
+FN:17,System.Void UPnPPortForwarder/<SetupPortForwarding>d__2::MoveNext()
+FNDA:0,System.Void UPnPPortForwarder/<SetupPortForwarding>d__2::MoveNext()
+DA:18,0
+DA:19,0
+DA:20,0
+DA:21,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:28,0
+DA:29,0
+DA:30,0
+DA:31,0
+DA:32,0
+DA:33,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:38,0
+DA:39,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:44,0
+DA:45,0
+BRDA:19,42,0,0
+BRDA:23,191,0,0
+BRDA:23,191,1,0
+BRDA:19,42,1,0
+LF:30
+LH:0
+BRF:4
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/Models/RCON.cs
+FN:7,System.Void RCONConnection::.ctor(System.String,System.Int32,System.String)
+FNDA:0,System.Void RCONConnection::.ctor(System.String,System.Int32,System.String)
+DA:8,0
+DA:9,0
+DA:10,0
+DA:11,0
+DA:12,0
+FN:13,System.Void RCONConnection/<SendCommandToServer>d__2::MoveNext()
+FNDA:0,System.Void RCONConnection/<SendCommandToServer>d__2::MoveNext()
+DA:14,0
+DA:15,0
+DA:16,0
+DA:17,0
+LF:9
+LH:0
+BRF:0
+BRH:0
+FNF:2
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/Models/SettingsParser.cs
+FN:20,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> IniSettingsService::ParseIniFile()
+FNDA:5,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> IniSettingsService::ParseIniFile()
+DA:21,5
+DA:22,5
+DA:23,10
+DA:24,5
+DA:25,0
+DA:26,0
+DA:29,5
+DA:30,5
+DA:32,5
+DA:33,35
+DA:34,10
+DA:35,10
+DA:36,10
+DA:37,0
+DA:38,0
+DA:41,10
+DA:42,10
+DA:44,5
+DA:45,5
+BRDA:24,70,0,0
+BRDA:24,70,1,5
+BRDA:33,235,1,10
+BRDA:36,180,0,0
+BRDA:36,180,1,10
+BRDA:33,235,0,5
+FN:47,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> IniSettingsService::GetServerSettings()
+FNDA:4,System.Collections.Generic.List`1<System.Collections.Generic.KeyValuePair`2<System.String,System.String>> IniSettingsService::GetServerSettings()
+DA:48,4
+DA:49,4
+DA:50,4
+FN:52,System.Void IniSettingsService::UpdateSetting(System.String,System.String)
+FNDA:3,System.Void IniSettingsService::UpdateSetting(System.String,System.String)
+DA:53,3
+DA:54,6
+DA:55,3
+DA:56,0
+DA:57,0
+DA:60,3
+DA:61,3
+BRDA:55,44,0,0
+BRDA:55,44,1,3
+FN:63,System.Void IniSettingsService::SaveSettings()
+FNDA:1,System.Void IniSettingsService::SaveSettings()
+DA:64,1
+DA:65,3
+DA:66,1
+DA:68,1
+DA:69,2
+DA:70,1
+DA:71,1
+DA:72,1
+DA:73,1
+DA:74,1
+DA:76,0
+DA:78,1
+DA:79,1
+BRDA:69,140,1,1
+BRDA:71,116,0,1
+BRDA:71,116,1,0
+BRDA:69,140,0,1
+FN:12,System.Void IniSettingsService::.ctor(System.String,System.IO.Abstractions.IFileSystem)
+FNDA:5,System.Void IniSettingsService::.ctor(System.String,System.IO.Abstractions.IFileSystem)
+DA:13,5
+DA:14,5
+DA:15,5
+DA:16,5
+DA:17,5
+DA:18,5
+LF:48
+LH:41
+BRF:12
+BRH:8
+FNF:5
+FNH:5
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/Program.cs
+FN:0,System.Void Program::<Main>$(System.String[])
+FNDA:0,System.Void Program::<Main>$(System.String[])
+DA:1,0
+DA:3,0
+DA:4,0
+DA:5,0
+DA:7,0
+DA:9,0
+DA:11,0
+LF:7
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/Startup.cs
+FN:10,Microsoft.Extensions.Configuration.IConfiguration Startup::get_Configuration()
+FNDA:0,Microsoft.Extensions.Configuration.IConfiguration Startup::get_Configuration()
+DA:11,0
+FN:18,System.Void Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+FNDA:0,System.Void Startup::ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+DA:19,0
+DA:20,0
+DA:21,0
+DA:22,0
+DA:23,0
+DA:24,0
+DA:25,0
+DA:26,0
+DA:27,0
+DA:28,0
+FN:30,System.Void Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+FNDA:0,System.Void Startup::Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)
+DA:31,0
+DA:32,0
+DA:33,0
+DA:34,0
+DA:35,0
+DA:37,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:43,0
+BRDA:32,9,0,0
+BRDA:32,9,1,0
+FN:12,System.Void Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
+FNDA:0,System.Void Startup::.ctor(Microsoft.Extensions.Configuration.IConfiguration)
+DA:13,0
+DA:14,0
+DA:15,0
+DA:16,0
+LF:26
+LH:0
+BRF:2
+BRH:0
+FNF:4
+FNH:0
+end_of_record
+SF:/Users/jameshaddock/.nuget/packages/microsoft.net.test.sdk/16.7.1/build/netcoreapp2.1/Microsoft.NET.Test.Sdk.Program.cs
+FN:3,System.Void AutoGeneratedProgram::Main(System.String[])
+FNDA:0,System.Void AutoGeneratedProgram::Main(System.String[])
+DA:4,0
+LF:1
+LH:0
+BRF:0
+BRH:0
+FNF:1
+FNH:0
+end_of_record

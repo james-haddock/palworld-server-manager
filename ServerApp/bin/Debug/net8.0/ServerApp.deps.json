@@ -8,11 +8,16 @@
     ".NETCoreApp,Version=v8.0": {
       "ServerApp/1.0.0": {
         "dependencies": {
+          "CoreRCON": "5.3.2",
           "HotChocolate.AspNetCore": "13.8.1",
           "HotChocolate.AspNetCore.Playground": "10.5.5",
+          "INIParser": "1.0.1",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
           "Open.NAT": "2.1.0",
-          "Swashbuckle.AspNetCore": "6.4.0"
+          "Swashbuckle.AspNetCore": "6.4.0",
+          "System.IO.Abstractions": "20.0.15",
+          "System.IO.Abstractions.TestingHelpers": "20.0.15",
+          "ini-parser": "2.5.2"
         },
         "runtime": {
           "ServerApp.dll": {}
@@ -26,6 +31,19 @@
           "lib/net8.0/BananaCakePop.Middleware.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.0.0"
+          }
+        }
+      },
+      "CoreRCON/5.3.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "System.Diagnostics.DiagnosticSource": "8.0.0",
+          "System.IO.Pipelines": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CoreRCON.dll": {
+            "assemblyVersion": "5.3.2.0",
+            "fileVersion": "5.3.2.0"
           }
         }
       },
@@ -376,6 +394,22 @@
           }
         }
       },
+      "ini-parser/2.5.2": {
+        "runtime": {
+          "lib/net20/INIFileParser.dll": {
+            "assemblyVersion": "2.5.2.0",
+            "fileVersion": "2.5.2.0"
+          }
+        }
+      },
+      "INIParser/1.0.1": {
+        "runtime": {
+          "lib/net6.0/INIParser.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Server.Abstractions": "2.1.1",
@@ -433,7 +467,7 @@
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.1.1",
           "Microsoft.AspNetCore.Http.Extensions": "2.1.1",
           "Microsoft.Extensions.FileProviders.Abstractions": "2.1.1",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.WebEncoders": "2.1.1"
         }
       },
@@ -470,10 +504,21 @@
           "Microsoft.Extensions.Configuration.Abstractions": "2.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "2.1.1",
-          "Microsoft.Extensions.Logging.Abstractions": "2.1.1"
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0"
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/2.1.1": {},
+      "Microsoft.Extensions.Logging/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        }
+      },
       "Microsoft.Extensions.ObjectPool/8.0.0": {},
       "Microsoft.Extensions.Options/8.0.0": {
         "dependencies": {
@@ -553,6 +598,29 @@
       "System.Collections.Immutable/8.0.0": {},
       "System.ComponentModel.Annotations/5.0.0": {},
       "System.Diagnostics.DiagnosticSource/8.0.0": {},
+      "System.IO.Abstractions/20.0.15": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15",
+          "TestableIO.System.IO.Abstractions.Wrappers": "20.0.15"
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Abstractions.dll": {
+            "assemblyVersion": "20.0.0.0",
+            "fileVersion": "20.0.15.15697"
+          }
+        }
+      },
+      "System.IO.Abstractions.TestingHelpers/20.0.15": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions.TestingHelpers": "20.0.15"
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Abstractions.TestingHelpers.dll": {
+            "assemblyVersion": "20.0.0.0",
+            "fileVersion": "20.0.15.15697"
+          }
+        }
+      },
       "System.IO.Hashing/7.0.0": {
         "runtime": {
           "lib/net7.0/System.IO.Hashing.dll": {
@@ -570,6 +638,37 @@
       },
       "System.Threading.Channels/8.0.0": {},
       "System.Threading.Tasks.Extensions/4.5.0": {},
+      "TestableIO.System.IO.Abstractions/20.0.15": {
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.dll": {
+            "assemblyVersion": "20.0.0.0",
+            "fileVersion": "20.0.15.15697"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.TestingHelpers/20.0.15": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15",
+          "TestableIO.System.IO.Abstractions.Wrappers": "20.0.15"
+        },
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.TestingHelpers.dll": {
+            "assemblyVersion": "20.0.0.0",
+            "fileVersion": "20.0.15.15697"
+          }
+        }
+      },
+      "TestableIO.System.IO.Abstractions.Wrappers/20.0.15": {
+        "dependencies": {
+          "TestableIO.System.IO.Abstractions": "20.0.15"
+        },
+        "runtime": {
+          "lib/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll": {
+            "assemblyVersion": "20.0.0.0",
+            "fileVersion": "20.0.15.15697"
+          }
+        }
+      },
       "Yarp.ReverseProxy/2.0.1": {
         "dependencies": {
           "System.IO.Hashing": "7.0.0"
@@ -595,6 +694,13 @@
       "sha512": "sha512-6Zj/vfmnCXLjBG7WNdtOgZZ5ZDR3Sy1FQSshZUonIYs3OdzozmsFmqPXMd9XJ0QE9aAildgVGq/lDLpLrMI4Yw==",
       "path": "bananacakepop.middleware/13.0.0",
       "hashPath": "bananacakepop.middleware.13.0.0.nupkg.sha512"
+    },
+    "CoreRCON/5.3.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lBJV4+LBcESbGxL2EmMm9w6Ofl0ScDi6UNgEI4XTv/pS6dcUmWSYvyCHMIDQ5A9ebIL13xxDecKMdNRTMeJs+Q==",
+      "path": "corercon/5.3.2",
+      "hashPath": "corercon.5.3.2.nupkg.sha512"
     },
     "GreenDonut/13.8.1": {
       "type": "package",
@@ -792,6 +898,20 @@
       "path": "hotchocolate.validation/13.8.1",
       "hashPath": "hotchocolate.validation.13.8.1.nupkg.sha512"
     },
+    "ini-parser/2.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hp3gKmC/14+6eKLgv7Jd1Z7OV86lO+tNfOXr/stQbwmRhdQuXVSvrRAuAe7G5+lwhkov0XkqZ8/bn1PYWMx6eg==",
+      "path": "ini-parser/2.5.2",
+      "hashPath": "ini-parser.2.5.2.nupkg.sha512"
+    },
+    "INIParser/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gO/vSgpyNel4h6O3sBPS/bRPwd+aOBke4RLImqTtKI+hmSucRGevyN+HRwpAuN8X+gUy+mL48vExWe5dYiaj0A==",
+      "path": "iniparser/1.0.1",
+      "hashPath": "iniparser.1.0.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Hosting.Abstractions/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -904,12 +1024,19 @@
       "path": "microsoft.extensions.hosting.abstractions/2.1.1",
       "hashPath": "microsoft.extensions.hosting.abstractions.2.1.1.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/2.1.1": {
+    "Microsoft.Extensions.Logging/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XRzK7ZF+O6FzdfWrlFTi1Rgj2080ZDsd46vzOjadHUB0Cz5kOvDG8vI7caa5YFrsHQpcfn0DxtjS4E46N4FZsA==",
-      "path": "microsoft.extensions.logging.abstractions/2.1.1",
-      "hashPath": "microsoft.extensions.logging.abstractions.2.1.1.nupkg.sha512"
+      "sha512": "sha512-tvRkov9tAJ3xP51LCv3FJ2zINmv1P8Hi8lhhtcKGqM+ImiTCC84uOPEI4z8Cdq2C3o9e+Aa0Gw0rmrsJD77W+w==",
+      "path": "microsoft.extensions.logging/8.0.0",
+      "hashPath": "microsoft.extensions.logging.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-arDBqTgFCyS0EvRV7O3MZturChstm50OJ0y9bDJvAcmEPJm0FFpFyjU/JLYyStNGGey081DvnQYlncNX5SJJGA==",
+      "path": "microsoft.extensions.logging.abstractions/8.0.0",
+      "hashPath": "microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.ObjectPool/8.0.0": {
       "type": "package",
@@ -1016,6 +1143,20 @@
       "path": "system.diagnostics.diagnosticsource/8.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512"
     },
+    "System.IO.Abstractions/20.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IcKGQnTDIdDzZreoU5zkiabLEV1O5TiAuNCVCUzVwXPqODO1Ne2kZGSufPWPVP5xFmMgPCvMXH4eQqVGwSG6Cg==",
+      "path": "system.io.abstractions/20.0.15",
+      "hashPath": "system.io.abstractions.20.0.15.nupkg.sha512"
+    },
+    "System.IO.Abstractions.TestingHelpers/20.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Or7WQBhwAIvlzMKXod/XfBoqHOcRbmTufqG1FDDUF1U+n4ufGrrgSbYiISJJW11QgWqhwG9qaepGIQXJd7WUIg==",
+      "path": "system.io.abstractions.testinghelpers/20.0.15",
+      "hashPath": "system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512"
+    },
     "System.IO.Hashing/7.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1057,6 +1198,27 @@
       "sha512": "sha512-csAJe24tWCOTO/rXoJAuBGuOq7ZdHY60XtC6b/hNMHT9tuX+2J9HK7nciLEtNvnrRLMxBACLXO3R4y5+kCduMA==",
       "path": "system.threading.tasks.extensions/4.5.0",
       "hashPath": "system.threading.tasks.extensions.4.5.0.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions/20.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ohYr5VOrTGO+8ZVvaWZGg5vn7wQIYmAT35pjrxZ/NNbC4yamMw2JYDFv73rhpOjE/7PkuwV2Mk9GMR6hY527Gw==",
+      "path": "testableio.system.io.abstractions/20.0.15",
+      "hashPath": "testableio.system.io.abstractions.20.0.15.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.TestingHelpers/20.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Usbm1pW5TljGIt++b5e2BsxZhG19u0b4Y8cZTuPq4JfbGjv1G6GqPpTD7ygqKloFZOaB3jQjhLIYUjTLlC/+2Q==",
+      "path": "testableio.system.io.abstractions.testinghelpers/20.0.15",
+      "hashPath": "testableio.system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512"
+    },
+    "TestableIO.System.IO.Abstractions.Wrappers/20.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ylbWPBEeX8oS2Uj8pCOyFPfBRJ1JHc56YyHEa1IaaYpW4QDH5zw3H/CRm2R6V0PWCG+Fx+tpb09vkD6Y97UB2Q==",
+      "path": "testableio.system.io.abstractions.wrappers/20.0.15",
+      "hashPath": "testableio.system.io.abstractions.wrappers.20.0.15.nupkg.sha512"
     },
     "Yarp.ReverseProxy/2.0.1": {
       "type": "package",

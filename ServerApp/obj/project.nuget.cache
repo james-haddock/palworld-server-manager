@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "n+AKaDSWkgzlpoP6uBEhajIw1sav9XEuvxSciXbIXpgJRLVBsjSbBPRzdA1sUk7FvWBcRkVkoiuO+2jD5TQ0lQ==",
+  "dgSpecHash": "kbUlE1y4hPnlS1oDo7HKCTApIhy8tn6fneoBHqQKKElFHp3SaLsyyIEWR79Im80PCqUZIqBhlMX6nAtGoDmdfw==",
   "success": true,
   "projectFilePath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
   "expectedPackageFiles": [
@@ -69,12 +69,17 @@
     "/Users/jameshaddock/.nuget/packages/system.collections.immutable/8.0.0/system.collections.immutable.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.componentmodel.annotations/5.0.0/system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.diagnostics.diagnosticsource/8.0.0/system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/system.io.abstractions/20.0.15/system.io.abstractions.20.0.15.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/system.io.abstractions.testinghelpers/20.0.15/system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.io.hashing/7.0.0/system.io.hashing.7.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.threading.channels/8.0.0/system.threading.channels.8.0.0.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/system.threading.tasks.extensions/4.5.0/system.threading.tasks.extensions.4.5.0.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions/20.0.15/testableio.system.io.abstractions.20.0.15.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions.testinghelpers/20.0.15/testableio.system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions.wrappers/20.0.15/testableio.system.io.abstractions.wrappers.20.0.15.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/yarp.reverseproxy/2.0.1/yarp.reverseproxy.2.0.1.nupkg.sha512"
   ],
   "logs": [
