@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kbUlE1y4hPnlS1oDo7HKCTApIhy8tn6fneoBHqQKKElFHp3SaLsyyIEWR79Im80PCqUZIqBhlMX6nAtGoDmdfw==",
+  "dgSpecHash": "MrCdsHgQcoK9BE1DkqQcJV++tB/9UfaOLDtRgwdiHySbm1gZtSage85a7dTcpq55pRpQ10CkpaJUYYNxWxrEcQ==",
   "success": true,
   "projectFilePath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
   "expectedPackageFiles": [
@@ -80,6 +80,7 @@
     "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions/20.0.15/testableio.system.io.abstractions.20.0.15.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions.testinghelpers/20.0.15/testableio.system.io.abstractions.testinghelpers.20.0.15.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/testableio.system.io.abstractions.wrappers/20.0.15/testableio.system.io.abstractions.wrappers.20.0.15.nupkg.sha512",
+    "/Users/jameshaddock/.nuget/packages/yamldotnet/15.1.1/yamldotnet.15.1.1.nupkg.sha512",
     "/Users/jameshaddock/.nuget/packages/yarp.reverseproxy/2.0.1/yarp.reverseproxy.2.0.1.nupkg.sha512"
   ],
   "logs": [

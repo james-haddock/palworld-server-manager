@@ -1265,6 +1265,19 @@
           }
         }
       },
+      "YamlDotNet/15.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Yarp.ReverseProxy/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -3285,6 +3298,31 @@
         "testableio.system.io.abstractions.wrappers.nuspec"
       ]
     },
+    "YamlDotNet/15.1.1": {
+      "sha512": "GjK+j6XmaFoLhdGpv5jVkt1wbUwVvZaWsUEPzr6gfA/VaEgYMlwZXeVyWJOqFK9U41mSocZvSuLkEFFhVEj0HA==",
+      "type": "package",
+      "path": "yamldotnet/15.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "images/yamldotnet.png",
+        "lib/net47/YamlDotNet.dll",
+        "lib/net47/YamlDotNet.xml",
+        "lib/net6.0/YamlDotNet.dll",
+        "lib/net6.0/YamlDotNet.xml",
+        "lib/net7.0/YamlDotNet.dll",
+        "lib/net7.0/YamlDotNet.xml",
+        "lib/net8.0/YamlDotNet.dll",
+        "lib/net8.0/YamlDotNet.xml",
+        "lib/netstandard2.0/YamlDotNet.dll",
+        "lib/netstandard2.0/YamlDotNet.xml",
+        "lib/netstandard2.1/YamlDotNet.dll",
+        "lib/netstandard2.1/YamlDotNet.xml",
+        "yamldotnet.15.1.1.nupkg.sha512",
+        "yamldotnet.nuspec"
+      ]
+    },
     "Yarp.ReverseProxy/2.0.1": {
       "sha512": "op7vBwONPFeR1PYxeLw+RLqSodODDX8RWd0OinLGMVIq6yi1q9mv1j56ImuyZgiAToksiC0Dc7jbRUZ9I+jvFA==",
       "type": "package",
@@ -3313,6 +3351,7 @@
       "Swashbuckle.AspNetCore >= 6.4.0",
       "System.IO.Abstractions >= 20.0.15",
       "System.IO.Abstractions.TestingHelpers >= 20.0.15",
+      "YamlDotNet >= 15.1.1",
       "ini-parser >= 2.5.2"
     ]
   },
@@ -3388,6 +3427,10 @@
           "System.IO.Abstractions.TestingHelpers": {
             "target": "Package",
             "version": "[20.0.15, )"
+          },
+          "YamlDotNet": {
+            "target": "Package",
+            "version": "[15.1.1, )"
           },
           "ini-parser": {
             "target": "Package",
