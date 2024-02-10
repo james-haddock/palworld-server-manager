@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-class RCONService
+public class RCONService
     {
     private string _ipAddress;
 
@@ -22,13 +22,13 @@ class RCONService
             _port = port;
         }
 
-    public async Task<string> SendServerRconCommand(string command)
+    public async Task<string> SendServerCommand(string command)
     {
         var process = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = rconPath,
+                FileName = rconFilePath,
                 Arguments = $" -a {_ipAddress}:{_port} -p {_password} command {command}",
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
