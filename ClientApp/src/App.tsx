@@ -1,35 +1,30 @@
-import './App.css'
-import { ApolloProvider, useMutation, gql } from '@apollo/client';
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+import { ApolloProvider } from '@apollo/client';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import AdminPage from './pages/AdminPage';
+// import ConfigPage from './pages/ConfigPage';
+// import UsersPage from './pages/UsersPage';
+// import OtherPage from './pages/OtherPage';
+import { NavbarSimple } from "./components/navbar/NavbarSimple"; 
 import client from './apolloClient';
-
-const STOP_SERVER = gql`
-  mutation StopServer {
-    stopServer
-  }
-`;
-
-const START_SERVER = gql`
-  mutation StartServer {
-    startServer
-  }
-`;
-
-const ServerControls: React.FC = () => {
-  const [stopServer] = useMutation(STOP_SERVER);
-  const [startServer] = useMutation(START_SERVER);
-
-  return (
-    <div>
-      <button onClick={() => stopServer()}>Stop Server</button>
-      <button onClick={() => startServer()}>Start Server</button>
-    </div>
-  );
-}
 
 const App: React.FC = () => {
   return (
     <ApolloProvider client={client}>
-      <ServerControls />
+      <MantineProvider>
+      <NavbarSimple />
+        <Router>
+          <Routes>
+          <Route path="/" element={<HomePage />} />
+    <Route path="/admin" element={<AdminPage />} />
+          {/* <Route path="/config" element={<ConfigPage />} />
+          <Route path="/users" element={<UsersPage />} />
+  <Route path="/other" element={<OtherPage />} /> */}
+          </Routes>
+        </Router>
+      </MantineProvider>
     </ApolloProvider>
   );
 }

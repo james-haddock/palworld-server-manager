@@ -11,9 +11,20 @@
   },
   "dependencies": {
     "@apollo/client": "^3.9.4",
+    "@mantine/core": "^7.5.2",
+    "@mantine/dates": "^7.5.2",
+    "@mantine/form": "^7.5.2",
+    "@mantine/hooks": "^7.5.2",
+    "@mantine/modals": "^7.5.2",
+    "@mantine/notifications": "^7.5.2",
+    "@mantine/nprogress": "^7.5.2",
+    "@mantinex/mantine-logo": "^1.0.1",
+    "@tabler/icons-react": "^2.47.0",
+    "dayjs": "^1.11.10",
     "graphql": "^16.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
@@ -24,6 +35,9 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
   }
