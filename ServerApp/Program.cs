@@ -1,4 +1,5 @@
 using System.IO.Abstractions;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services
     .AddSingleton<ServerControlService>()
     .AddSingleton<RCONService>(sp => 
         new RCONService("localhost", "25575", "test0303", "./Models/RCON/Console/rcon.exe"))
+    .AddSingleton<Nginx>()
     .AddGraphQLServer()
     .AddQueryType<ServerSettingsQuery>()
     .AddMutationType(d => d.Name("Mutation"))
@@ -30,5 +32,7 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 
 app.MapGraphQL();
+
+var nginx = app.Services.GetRequiredService<Nginx>();
 
 app.Run();
