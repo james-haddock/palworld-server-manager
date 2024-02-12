@@ -210,6 +210,8 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/TestableIO.System.IO.Abstractions.Wrappers.dll
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/YamlDotNet.dll
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/YamlDotNet.dll
+/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\appsettings.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\ServerApp.exe
@@ -249,6 +251,7 @@ C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\D
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\INIFileParser.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\INIParser.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\Open.Nat.dll
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
