@@ -1,8 +1,9 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Group, Code } from '@mantine/core';
 import { Text } from '@mantine/core';
+import {Link} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
-
   IconSettings,
   IconSwitchHorizontal,
   IconLogout,
@@ -10,35 +11,32 @@ import {
   IconSmartHome,
   IconServerCog,
   IconPhotoCircle,
+  IconLayoutDashboard,
 } from '@tabler/icons-react';
 import classes from './NavbarSimple.module.css';
 
 const data = [
-  { link: '/', label: 'Home', icon: IconSmartHome },
-  { link: 'admin', label: 'Server Admin', icon: IconPhotoCircle },
-  { link: 'config', label: 'Server Config', icon: IconServerCog },
-  { link: 'users', label: 'Users & Permissions', icon: IconUsers },
-  { link: 'other', label: 'Other Settings', icon: IconSettings },
+  { link: '/', label: 'Dashboard', icon: IconLayoutDashboard },
+  { link: '/admin', label: 'Server Admin', icon: IconPhotoCircle },
+  { link: '/config', label: 'Server Config', icon: IconServerCog },
+  { link: '/users', label: 'Users & Permissions', icon: IconUsers },
+  { link: '/other', label: 'Other Settings', icon: IconSettings },
 ];
 
 export function NavbarSimple() {
-  const [active, setActive] = useState('Home');
+  const location = useLocation();
 
-  const links = data.map((item) => (
-    <a
-      className={classes.link}
-      data-active={item.label === active || undefined}
-      href={item.link}
-      key={item.label}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(item.label);
-      }}
-    >
-      <item.icon className={classes.linkIcon} stroke={1.5} />
-      <span>{item.label}</span>
-    </a>
-  ));
+const links = data.map((item) => (
+  <Link
+    className={`${classes.link} ${location.pathname === item.link ? classes.linkActive : ''}`}
+    to={item.link}
+    key={item.label}
+  >
+    <item.icon className={classes.linkIcon} stroke={1.5} />
+    <span>{item.label}</span>
+  </Link>
+));
+
 
   return (
     <nav className={classes.navbar}>
