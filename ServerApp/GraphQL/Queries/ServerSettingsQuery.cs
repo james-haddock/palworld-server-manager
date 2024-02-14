@@ -1,6 +1,4 @@
-using HotChocolate;
-using HotChocolate.Types;
-using System.Collections.Generic;
+[ExtendObjectType("Query")]
 
 public class ServerSettingsQuery
 {

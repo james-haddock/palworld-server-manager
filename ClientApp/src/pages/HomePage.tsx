@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Skeleton, Container, Paper, Loader, Text } from '@mantine/core';
+import { Grid, Container, Paper, Loader, Text } from '@mantine/core';
 import { TableScrollArea } from '../components/playertable/playerTable';
 import IPAddress from '../components/ipAddress';
+import { ServerStatus } from '../components/serverStatus';
 
-const child = <Skeleton height={140} radius="md" animate={false} />;
+// const child = <Skeleton height={140} radius="md" animate={false} />;
 
 const HomePage: React.FC = () => {
   const [ip, setIp] = useState(''); 
@@ -17,7 +18,7 @@ const HomePage: React.FC = () => {
     <Container size="xl" my="md">
       <Grid>
         <Grid.Col span={{ base: 12, xs: 7 }}>
-          <Paper shadow="md" p="xl">Server Status<p>Online 🟢</p></Paper>
+        <ServerStatus /><Text>sdfsd</Text>
         </Grid.Col>
         <Grid.Col span={{ base: 12, xs: 5 }}>
           <Paper shadow="md" p="xl">Server Up Time<p>0:00</p></Paper>

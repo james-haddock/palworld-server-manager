@@ -8,7 +8,6 @@ import {
   IconSwitchHorizontal,
   IconLogout,
   IconUsers,
-  IconSmartHome,
   IconServerCog,
   IconPhotoCircle,
   IconLayoutDashboard,
