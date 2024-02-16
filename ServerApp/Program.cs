@@ -15,7 +15,7 @@ builder.Services
     .AddSingleton<ServerControlService>()
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
-        new RCONService("localhost", "25575", "test0303", "./Models/RCON/Console/rcon.exe"))
+        new RCONService("localhost", "25575", "test0303", "./Models/RCON/Console/win64/rcon.exe"))
     .AddSingleton<Nginx>()
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))

@@ -7,10 +7,12 @@ import ConfigPage from './pages/ConfigPage';
 import OtherPage from './pages/OtherPage';
 import { NavbarSimple } from "./components/navbar/NavbarSimple";
 import './App.css';
+import { ServerStatusProvider } from './components/serverStatusProvider.tsx';
 
 
 const App: React.FC = () => {
   return (
+    <ServerStatusProvider>
         <Router>
           <NavbarSimple />
           <main className='main-content'>
@@ -22,6 +24,7 @@ const App: React.FC = () => {
           </Routes>
           </main>
         </Router>
+        </ServerStatusProvider>
   );
 }
 

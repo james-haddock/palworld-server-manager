@@ -14,6 +14,7 @@ public class ServerStatusQuery
         {
             try
             {
+                _logger.LogInformation("Retrieving server status for client.");
                 return _serverStatusChecker.ServerStatus;
             }
             catch (Exception ex)
