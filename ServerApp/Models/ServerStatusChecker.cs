@@ -2,14 +2,14 @@ public class ServerStatusChecker
 {
     private readonly ILogger<ServerControlService> _logger;
     private RCONService _rconConnection;
-    private string serverStatus;
+    private string serverStatus = "Offline";
     private CancellationTokenSource cts = new CancellationTokenSource();
 
     public ServerStatusChecker([Service] RCONService rconConnection, ILogger<ServerControlService> logger)
     {
         _logger = logger;
         _rconConnection = rconConnection;
-        CheckServerStatus(cts.Token);
+        Task.Run(() => CheckServerStatus(cts.Token));
     }
 
     public string ServerStatus
@@ -22,6 +22,7 @@ public class ServerStatusChecker
     {
         while (!cancellationToken.IsCancellationRequested)
         {
+            _logger.LogInformation("Retrieving server status for app.");
             try
             {
                 string? checkServerStartup = await _rconConnection.SendServerCommand("Info");
@@ -33,21 +34,20 @@ public class ServerStatusChecker
                 }
                 else
                 {
-                    _logger.LogInformation("Server is not online yet.");
+                    _logger.LogInformation("Server is not online.");
                     ServerStatus = "Offline";
                 }
             }
             catch
             {
-                _logger.LogError("Error while checking server status.");
-                await Task.Delay(3000, cancellationToken);
+                _logger.LogInformation("Server is not online.");
                 ServerStatus = "Offline";
             }
+            Thread.Sleep(3000);
         }
-    }
-
-    public void StopChecking()
-    {
-        cts.Cancel();
-    }
+}
+public void StopChecking()
+{
+    cts.Cancel();
+}
 }

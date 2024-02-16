@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Grid, Container, Paper, Loader, Text } from '@mantine/core';
 import { TableScrollArea } from '../components/playertable/playerTable';
 import IPAddress from '../components/ipAddress';
-import { ServerStatus } from '../components/serverStatus';
+import { ServerStatusContext } from '../components/serverStatusContext';
 
 // const child = <Skeleton height={140} radius="md" animate={false} />;
 
 const HomePage: React.FC = () => {
   const [ip, setIp] = useState(''); 
+  const { serverStatus } = useContext(ServerStatusContext)
 
   useEffect(() => {
     IPAddress(setIp);
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
     <Container size="xl" my="md">
       <Grid>
         <Grid.Col span={{ base: 12, xs: 7 }}>
-        <ServerStatus /><Text>sdfsd</Text>
+        <Paper shadow="md" p="xl">Server Status<p>{serverStatus === "Online" ? "Online 🟢" : "Offline 🔴"}</p></Paper>
         </Grid.Col>
         <Grid.Col span={{ base: 12, xs: 5 }}>
           <Paper shadow="md" p="xl">Server Up Time<p>0:00</p></Paper>
