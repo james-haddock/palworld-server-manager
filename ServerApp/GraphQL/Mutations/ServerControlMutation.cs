@@ -12,8 +12,7 @@ public class ServerControlMutation
     {
         try
         {
-            _serverControlService.RestartServer();
-            return true;
+            return _serverControlService.RestartServer();
         }
         catch (Exception ex)
         {
@@ -26,8 +25,7 @@ public class ServerControlMutation
     {
         try
         {
-            _serverControlService.StopServer();
-            return true;
+            return _serverControlService.StopServer();
         }
         catch (Exception ex)
         {
@@ -40,8 +38,7 @@ public class ServerControlMutation
     {
         try
         {
-            _serverControlService.StartServer();
-            return true;
+            return _serverControlService.StartServer();
         }
         catch (Exception ex)
         {

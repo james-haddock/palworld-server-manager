@@ -212,8 +212,14 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/YamlDotNet.dll
 /Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/package-lock.json
+C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/package.json
+/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/package-lock.json
+/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/package.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\appsettings.json
+C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\package-lock.json
+C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\package.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\ServerApp.exe
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\ServerApp.deps.json
 C:\Users\jhadd\Documents\Coding\Projects\palworld-server-manager\ServerApp\bin\Debug\net8.0\ServerApp.runtimeconfig.json
