@@ -59,7 +59,7 @@ public class ServerControlService
                         attemptNumber++;
                     }
                 }
-                catch 
+                catch
                 // TEST AFTER REMOVING CATCHING THE EXCEPTION
                 {
                     _logger.LogError("Error while checking server status.");
