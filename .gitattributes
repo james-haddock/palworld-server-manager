@@ -1,8 +1,7 @@
-.stfolder/* linguist-vendored
-InstallApp/bin/* linguist-vendored
-ServerApp/bin/* linguist-vendored
-InstallAppTests/bin/* linguist-vendored
-ServerAppTests/bin/* linguist-vendored
-ServerApp/Infrastructure/nginx-1.24.0/* linguist-vendored
+.stfolder/** linguist-vendored
+InstallApp/bin/** linguist-vendored
+ServerApp/bin/** linguist-vendored
+InstallAppTests/bin/** linguist-vendored
+ServerAppTests/bin/** linguist-vendored
 ServerApp/Infrastructure/nginx-1.24.0/** linguist-vendored
-ServerApp/Models/RCON/Console/* linguist-vendored
+ServerApp/Models/RCON/Console/** linguist-vendored
