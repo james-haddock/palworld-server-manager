@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.IO.Abstractions;
-using System.Linq;
 
 public class IniSettingsService
 {
@@ -49,7 +45,7 @@ public class IniSettingsService
         return new List<KeyValuePair<string, string>>(_settings);
     }
 
-        public string GetSetting(string key)
+    public string GetSetting(string key)
     {
         var setting = _settings.FirstOrDefault(kv => kv.Key == key);
         if (setting.Equals(default(KeyValuePair<string, string>)))

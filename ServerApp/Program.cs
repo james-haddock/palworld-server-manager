@@ -1,9 +1,29 @@
+using System;
 using System.IO.Abstractions;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json")
+    .Build();
 
+string os = Environment.OSVersion.Platform.ToString().ToLower();
+
+string rconIp = configuration[$"{os}:RCON_IP"];
+string rconPort = configuration[$"{os}:RCON_PORT;"];
+string rconPassword = configuration[$"{os}:RCON_PASSWORD;"];
+string rconPath = configuration[$"{os}:RCON_PATH;"];
+
+if (os == "linux")
+{
+    builder.Services.AddSingleton<Nginx>();
+}
+else
+{
+    builder.Services.AddSingleton<NginxLinux>();
+}
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -15,8 +35,7 @@ builder.Services
     .AddSingleton<ServerControlService>()
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
-        new RCONService("localhost", "25575", "test0303", "./Models/RCON/Console/win64/rcon.exe"))
-    .AddSingleton<Nginx>()
+        new RCONService(rconIp, rconPort, rconPassword, rconPath))
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
         .AddTypeExtension<ServerSettingsQuery>()
