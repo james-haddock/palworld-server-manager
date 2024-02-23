@@ -609,6 +609,52 @@
           "lib/net6.0/INIParser.dll": {}
         }
       },
+      "Isopoh.Cryptography.Argon2/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Isopoh.Cryptography.Blake2b": "2.0.0",
+          "Isopoh.Cryptography.SecureArray": "2.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Isopoh.Cryptography.Argon2.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Isopoh.Cryptography.Argon2.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Isopoh.Cryptography.Blake2b/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Isopoh.Cryptography.SecureArray": "2.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Isopoh.Cryptography.Blake2b.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Isopoh.Cryptography.Blake2b.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Isopoh.Cryptography.SecureArray/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Isopoh.Cryptography.SecureArray.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Isopoh.Cryptography.SecureArray.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MediatR/8.1.0": {
         "type": "package",
         "compile": {
@@ -3947,6 +3993,72 @@
         "iniparser.1.0.1.nupkg.sha512",
         "iniparser.nuspec",
         "lib/net6.0/INIParser.dll"
+      ]
+    },
+    "Isopoh.Cryptography.Argon2/2.0.0": {
+      "sha512": "8ytWN19j+qARb/XYi7KkNMm4Z8zS6tfGgnsZ1N5ihbQ5LXfyL+uYowfJxtGW9TO0S8NM2q0BaTKGOtOlsrhclQ==",
+      "type": "package",
+      "path": "isopoh.cryptography.argon2/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "isopoh.cryptography.argon2.2.0.0.nupkg.sha512",
+        "isopoh.cryptography.argon2.nuspec",
+        "isopoh.png",
+        "lib/net6.0/Isopoh.Cryptography.Argon2.dll",
+        "lib/net6.0/Isopoh.Cryptography.Argon2.xml",
+        "lib/net7.0/Isopoh.Cryptography.Argon2.dll",
+        "lib/net7.0/Isopoh.Cryptography.Argon2.xml",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.Argon2.dll",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.Argon2.xml",
+        "lib/netstandard2.0/Isopoh.Cryptography.Argon2.dll",
+        "lib/netstandard2.0/Isopoh.Cryptography.Argon2.xml"
+      ]
+    },
+    "Isopoh.Cryptography.Blake2b/2.0.0": {
+      "sha512": "Co56bjSZV13fpvYHEN04qG8hqc0rKRm4os8iEgpJ/kujvt0pYtOVhj5J0Q7HBPbHwpcChRh2CjYVCGm4nw85VQ==",
+      "type": "package",
+      "path": "isopoh.cryptography.blake2b/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "isopoh.cryptography.blake2b.2.0.0.nupkg.sha512",
+        "isopoh.cryptography.blake2b.nuspec",
+        "isopoh.png",
+        "lib/net6.0/Isopoh.Cryptography.Blake2b.dll",
+        "lib/net6.0/Isopoh.Cryptography.Blake2b.xml",
+        "lib/net7.0/Isopoh.Cryptography.Blake2b.dll",
+        "lib/net7.0/Isopoh.Cryptography.Blake2b.xml",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.Blake2b.dll",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.Blake2b.xml",
+        "lib/netstandard2.0/Isopoh.Cryptography.Blake2b.dll",
+        "lib/netstandard2.0/Isopoh.Cryptography.Blake2b.xml"
+      ]
+    },
+    "Isopoh.Cryptography.SecureArray/2.0.0": {
+      "sha512": "oWbRv/BTztKJxKFr3FBurWBBCgE1+nUTm3pwtA3Yg7Xeo4wDpaLstAwqx8HeQG3/b9yOs2qykpqfbNPJ40McIw==",
+      "type": "package",
+      "path": "isopoh.cryptography.securearray/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "isopoh.cryptography.securearray.2.0.0.nupkg.sha512",
+        "isopoh.cryptography.securearray.nuspec",
+        "isopoh.png",
+        "lib/net6.0/Isopoh.Cryptography.SecureArray.dll",
+        "lib/net6.0/Isopoh.Cryptography.SecureArray.xml",
+        "lib/net7.0/Isopoh.Cryptography.SecureArray.dll",
+        "lib/net7.0/Isopoh.Cryptography.SecureArray.xml",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.SecureArray.dll",
+        "lib/netcoreapp3.1/Isopoh.Cryptography.SecureArray.xml",
+        "lib/netstandard2.0/Isopoh.Cryptography.SecureArray.dll",
+        "lib/netstandard2.0/Isopoh.Cryptography.SecureArray.xml"
       ]
     },
     "MediatR/8.1.0": {
@@ -7882,10 +7994,12 @@
       "HotChocolate.AspNetCore >= 13.8.1",
       "HotChocolate.AspNetCore.Playground >= 10.5.5",
       "IniParser >= 1.0.1",
+      "Isopoh.Cryptography.Argon2 >= 2.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.2",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.2",
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
       "Microsoft.AspNetCore.SpaServices.Extensions >= 8.0.1",
+      "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.2",
@@ -7961,6 +8075,10 @@
             "target": "Package",
             "version": "[1.0.1, )"
           },
+          "Isopoh.Cryptography.Argon2": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[8.0.2, )"
@@ -7976,6 +8094,10 @@
           "Microsoft.AspNetCore.SpaServices.Extensions": {
             "target": "Package",
             "version": "[8.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.2, )"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

@@ -1,5 +1,6 @@
 using System.IO.Abstractions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -36,8 +37,11 @@ builder.Services
     .AddSingleton<RCONService>(sp =>
         new RCONService(rconIp, rconPort, rconPassword, rconPath));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services
+    .AddDbContext<AppDbContext>(options =>
+    options.UseSqlite(configuration.GetConnectionString("DefaultConnection")))
+    .AddScoped<IUserRepository, UserRepository>()
+    .AddScoped<IAuthService, AuthService>();
 
 builder.Services
     .AddGraphQLServer()
@@ -48,14 +52,22 @@ builder.Services
         .AddTypeExtension<ServerSettingsMutation>()
         .AddTypeExtension<ServerControlMutation>()
         .AddTypeExtension<MutationRCON>()
+        .AddTypeExtension<UserAuthMutation>()
     .AddType<ServerSetting>();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
+
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseRouting();
