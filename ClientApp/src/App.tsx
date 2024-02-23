@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import AdminPage from './pages/AdminPage';
 import ConfigPage from './pages/ConfigPage';
 // import UsersPage from './pages/UsersPage';
+import LoginPage from './pages/LoginPage';
 import OtherPage from './pages/OtherPage';
 import { NavbarSimple } from "./components/navbar/NavbarSimple";
 import './App.css';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/config" element={<ConfigPage />} />
             <Route path="/other" element={<OtherPage />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
           </main>
         </Router>

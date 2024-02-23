@@ -1,7 +1,6 @@
-using System;
 using System.IO.Abstractions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,18 +10,18 @@ var configuration = new ConfigurationBuilder()
 
 string os = Environment.OSVersion.Platform.ToString().ToLower();
 
-string rconIp = configuration[$"{os}:RCON_IP"];
-string rconPort = configuration[$"{os}:RCON_PORT;"];
-string rconPassword = configuration[$"{os}:RCON_PASSWORD;"];
-string rconPath = configuration[$"{os}:RCON_PATH;"];
+string rconIp = configuration["RCON:IpAddress"] ?? throw new Exception("RCON:IpAddress is not set in configuration");
+string rconPort = configuration["RCON:Port"] ?? throw new Exception("RCON:Port is not set in configuration");
+string rconPassword = configuration["RCON:Password"] ?? throw new Exception("RCON:Password is not set in configuration");
+string rconPath = configuration["RCON:Path"] ?? throw new Exception("RCON:Path is not set in configuration");
 
 if (os == "linux")
 {
-    builder.Services.AddSingleton<Nginx>();
+    builder.Services.AddSingleton<NginxLinux>();
 }
 else
 {
-    builder.Services.AddSingleton<NginxLinux>();
+    builder.Services.AddSingleton<Nginx>();
 }
 
 builder.Logging.ClearProviders();
@@ -35,7 +34,12 @@ builder.Services
     .AddSingleton<ServerControlService>()
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
-        new RCONService(rconIp, rconPort, rconPassword, rconPath))
+        new RCONService(rconIp, rconPort, rconPassword, rconPath));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
         .AddTypeExtension<ServerSettingsQuery>()
@@ -52,9 +56,9 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseRouting();
-
 app.MapGraphQL();
 
 var nginx = app.Services.GetRequiredService<Nginx>();
