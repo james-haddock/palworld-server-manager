@@ -11,7 +11,7 @@ public class ServerStatusQuery
         _serverStatusChecker = serverStatusChecker;
     }
 
-    public string GetServerStatus()
+    public string getServerStatus()
     {
         try
         {
@@ -25,7 +25,7 @@ public class ServerStatusQuery
         }
     }
 
-    public async Task<ServerStats> GetServerInfo()
+    public async Task<ServerStats> getServerInfo()
     {
         try
         {

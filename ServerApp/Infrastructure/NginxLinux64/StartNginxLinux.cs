@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.Extensions.Logging;
+using System.IO;
 
 public class NginxLinux : IDisposable
 {
@@ -10,10 +11,13 @@ public class NginxLinux : IDisposable
     {
         _logger = logger;
 
+        var projectDirectory = System.IO.Directory.GetCurrentDirectory();
+        var nginxConfPath = System.IO.Path.Combine(projectDirectory, "Infrastructure/NginxLinux64/nginx.conf");
+
         var startInfo = new ProcessStartInfo
         {
             FileName = "/bin/bash",
-            Arguments = "-c \"sudo service nginx start\"",
+            Arguments = $"-c \"sudo nginx -c {nginxConfPath}\"",
             UseShellExecute = false,
             RedirectStandardOutput = true,
             RedirectStandardError = true,

@@ -39,7 +39,8 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
+    login();
+    navigate("/");
     const response = await loginMutation({ variables: { username, password } });
 
     if (response.data) {
@@ -88,7 +89,8 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
               Forgot password?
             </Anchor>
           </Group>
-          <Button onClick={loginbutton} fullWidth mt="xl" type="submit">
+          {/* <Button onClick={loginbutton} fullWidth mt="xl" type="submit"> */}
+          <Button fullWidth mt="xl" type="submit">
             Sign in
           </Button>
         </form>
