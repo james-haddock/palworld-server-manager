@@ -1,4 +1,6 @@
 import { useState, FormEvent } from "react";
+import { useMutation, gql } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import {
   TextInput,
   PasswordInput,
@@ -12,19 +14,40 @@ import {
   Button,
 } from "@mantine/core";
 import classes from "./AuthenticationTitle.module.css";
+import { useAuth } from "../userAuthentication/AuthContext";
 
 interface AuthenticationTitleProps {
   onLogin: (username: string, password: string, rememberMe: boolean) => void;
 }
 
+const LOGIN_MUTATION = gql`
+  mutation Login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      token
+    }
+  }
+`;
+
 export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleSubmit = (event: FormEvent) => {
+  const [loginMutation] = useMutation(LOGIN_MUTATION);
+
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    onLogin(username, password, rememberMe);
+    login();
+    navigate("/");
+    const response = await loginMutation({ variables: { username, password } });
+
+    if (response.data) {
+      localStorage.setItem("token", response.data.login.token);
+      onLogin(username, password, rememberMe);
+      navigate("/");
+    }
   };
 
   return (
@@ -66,6 +89,7 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
               Forgot password?
             </Anchor>
           </Group>
+          {/* <Button onClick={loginbutton} fullWidth mt="xl" type="submit"> */}
           <Button fullWidth mt="xl" type="submit">
             Sign in
           </Button>

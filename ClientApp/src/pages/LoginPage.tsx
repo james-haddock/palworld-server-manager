@@ -17,13 +17,14 @@ const LOGIN_MUTATION = gql`
 `;
 
 const LoginPage: React.FC = () => {
-  let navigate = useNavigate();
-  const [login, { data }] = useMutation(LOGIN_MUTATION);
+  const navigate = useNavigate();
+  // const [login, { data }] = useMutation(LOGIN_MUTATION);
+  const [login] = useMutation(LOGIN_MUTATION);
 
   const handleLogin = async (
     username: string,
     password: string,
-    rememberMe: boolean,
+    // rememberMe: boolean,
   ) => {
     const response = await login({ variables: { username, password } });
 

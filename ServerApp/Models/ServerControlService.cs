@@ -9,9 +9,10 @@ public class ServerControlService
     private readonly ILogger<ServerControlService> _logger;
     private RCONService _rconConnection;
 
-    public ServerControlService([Service] RCONService rconConnection, ILogger<ServerControlService> logger)
+
+    public ServerControlService(string serverExecutablePath, [Service] RCONService rconConnection, ILogger<ServerControlService> logger)
     {
-        _serverExecutable = "../InstallApp/bin/Debug/net8.0/steamcmd/steamapps/common/PalServer/PalServer.exe";
+        _serverExecutable = serverExecutablePath;
         _logger = logger;
         _rconConnection = rconConnection;
     }

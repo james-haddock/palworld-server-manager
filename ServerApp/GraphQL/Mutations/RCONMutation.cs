@@ -3,7 +3,7 @@ public class MutationRCON
 {
     public async Task<SendRconCommandPayload> SendRconCommand(SendRconCommandInput input, [Service] RCONService rconConnection)
     {
-        string command = input.Command;
+        string? command = input.Command;
         if (input.Value != null)
         {
             command += " " + input.Value;
