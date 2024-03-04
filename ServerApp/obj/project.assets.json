@@ -8014,19 +8014,19 @@
     ]
   },
   "packageFolders": {
-    "/home/jameshaddock/.nuget/packages/": {}
+    "/Users/jameshaddock/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jameshaddock/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
       "projectName": "ServerApp",
-      "projectPath": "/home/jameshaddock/palworld-server-manager/ServerApp/ServerApp.csproj",
-      "packagesPath": "/home/jameshaddock/.nuget/packages/",
-      "outputPath": "/home/jameshaddock/palworld-server-manager/ServerApp/obj/",
+      "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "packagesPath": "/Users/jameshaddock/.nuget/packages/",
+      "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/jameshaddock/.nuget/NuGet/NuGet.Config"
+        "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8165,7 +8165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/jameshaddock/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
