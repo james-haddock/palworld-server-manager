@@ -17,7 +17,7 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.2",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.2",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
-          "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.1",
+          "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.2",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Design": "8.0.2",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.2",
@@ -605,14 +605,14 @@
           }
         }
       },
-      "Microsoft.AspNetCore.SpaServices.Extensions/8.0.1": {
+      "Microsoft.AspNetCore.SpaServices.Extensions/8.0.2": {
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Physical": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll": {
-            "assemblyVersion": "8.0.1.0",
-            "fileVersion": "8.0.123.58008"
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.224.6804"
           }
         }
       },
@@ -2373,12 +2373,12 @@
       "path": "microsoft.aspnetcore.openapi/8.0.1",
       "hashPath": "microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.SpaServices.Extensions/8.0.1": {
+    "Microsoft.AspNetCore.SpaServices.Extensions/8.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gpvAb2jpuZoHNO1efQ+23r/5gxUR1GDQQ+BtJQpi4YeHWrY8PtJpcQC921Q1Pn0RU/W2J+0qADYbuNmveM4G6g==",
-      "path": "microsoft.aspnetcore.spaservices.extensions/8.0.1",
-      "hashPath": "microsoft.aspnetcore.spaservices.extensions.8.0.1.nupkg.sha512"
+      "sha512": "sha512-L/Uw7tEiLjDpImdr4aAdxAgXLpR1UQZRI4U4fCr8CpV1READxwRkShXvNVgfvddAhgUfskiBio+HnF0LSd0RXQ==",
+      "path": "microsoft.aspnetcore.spaservices.extensions/8.0.2",
+      "hashPath": "microsoft.aspnetcore.spaservices.extensions.8.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.StaticFiles/2.1.1": {
       "type": "package",

@@ -13,12 +13,12 @@ public class NginxLinux : IDisposable
 
         var projectDirectory = System.IO.Directory.GetCurrentDirectory();
         var nginxConfPath = System.IO.Path.Combine(projectDirectory, "Infrastructure/NginxLinux64/nginx.conf");
-        // var nginxLogPath = System.IO.Path.Combine(projectDirectory, "Infrastructure/NginxLinux64/error.log");
+        var nginxLogPath = System.IO.Path.Combine(projectDirectory, "Infrastructure/NginxLinux64/error.log");
 
         var startInfo = new ProcessStartInfo
         {
             FileName = "/bin/bash",
-            Arguments = $"-c \"sudo nginx -p {projectDirectory} -c {nginxConfPath}\"",
+            Arguments = $"-c \"nginx -p {projectDirectory} -c {nginxConfPath} -e {nginxLogPath}\"",
             UseShellExecute = false,
             RedirectStandardOutput = true,
             RedirectStandardError = true,
@@ -47,7 +47,7 @@ public class NginxLinux : IDisposable
         var stopInfo = new ProcessStartInfo
         {
             FileName = "/bin/bash",
-            Arguments = "-c \"sudo nginx -s quit\"",
+            Arguments = "-c \"nginx -s quit\"",
             UseShellExecute = false,
             RedirectStandardOutput = true,
             RedirectStandardError = true,

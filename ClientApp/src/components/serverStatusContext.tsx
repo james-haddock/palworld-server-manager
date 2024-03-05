@@ -12,9 +12,9 @@ interface ServerStatusContextType {
 export const ServerStatusContext = React.createContext<ServerStatusContextType>(
   {
     serverStatus: "Checking Server Status...",
-    setServerStatus: (_: string) => {},
+    setServerStatus: (_: string) => { },
     serverUpTime: "Checking Server Status...",
-    setServerUpTime: (_: string) => {},
+    setServerUpTime: (_: string) => { },
     refetch: async () => {
       throw new Error("Refetch function must be overridden");
     },

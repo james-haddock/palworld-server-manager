@@ -570,10 +570,6 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
 C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/appsettings.Development.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/package-lock.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/package.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/appsettings.json
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ServerApp
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ServerApp.deps.json
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ServerApp.runtimeconfig.json
@@ -824,13 +820,6 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 /home/jameshaddock/palworld-server-manager/ServerApp/obj/Debug/net8.0/ServerApp.pdb
 /home/jameshaddock/palworld-server-manager/ServerApp/obj/Debug/net8.0/ServerApp.genruntimeconfig.cache
 /home/jameshaddock/palworld-server-manager/ServerApp/obj/Debug/net8.0/ref/ServerApp.dll
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/package-lock.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/package.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/src/components/401/attributes.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/src/components/404/attributes.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/src/components/userAuthentication/attributes.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/tsconfig.json
-/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ClientApp/tsconfig.node.json
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/Infrastructure/nginx-1.24.0/conf/fastcgi.conf
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/Infrastructure/nginx-1.24.0/conf/fastcgi_params
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/Infrastructure/nginx-1.24.0/conf/koi-utf
@@ -866,3 +855,11 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/Infrastructure/NginxLinux64/nginx.conf
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/Infrastructure/NginxLinux64/StartNginxLinux.cs
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/run/nginx.pid
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/ServerApp.staticwebassets.runtime.json
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/appsettings.json
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/depresso-D2iHz3vB.png
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/index-BdYSQ0Yn.css
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/index-zUKIndqf.js
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/T_CaptainPenguin_icon_normal-CuHvdg_-.webp
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/index.html
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/vite.svg

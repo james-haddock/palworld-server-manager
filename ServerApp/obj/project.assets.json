@@ -859,7 +859,7 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Microsoft.AspNetCore.SpaServices.Extensions/8.0.1": {
+      "Microsoft.AspNetCore.SpaServices.Extensions/8.0.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Physical": "8.0.0"
@@ -4240,17 +4240,17 @@
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SpaServices.Extensions/8.0.1": {
-      "sha512": "gpvAb2jpuZoHNO1efQ+23r/5gxUR1GDQQ+BtJQpi4YeHWrY8PtJpcQC921Q1Pn0RU/W2J+0qADYbuNmveM4G6g==",
+    "Microsoft.AspNetCore.SpaServices.Extensions/8.0.2": {
+      "sha512": "L/Uw7tEiLjDpImdr4aAdxAgXLpR1UQZRI4U4fCr8CpV1READxwRkShXvNVgfvddAhgUfskiBio+HnF0LSd0RXQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaservices.extensions/8.0.1",
+      "path": "microsoft.aspnetcore.spaservices.extensions/8.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net8.0/Microsoft.AspNetCore.SpaServices.Extensions.dll",
-        "microsoft.aspnetcore.spaservices.extensions.8.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.spaservices.extensions.8.0.2.nupkg.sha512",
         "microsoft.aspnetcore.spaservices.extensions.nuspec"
       ]
     },
@@ -7998,7 +7998,7 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.2",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 8.0.2",
       "Microsoft.AspNetCore.OpenApi >= 8.0.1",
-      "Microsoft.AspNetCore.SpaServices.Extensions >= 8.0.1",
+      "Microsoft.AspNetCore.SpaServices.Extensions >= 8.0.2",
       "Microsoft.EntityFrameworkCore >= 8.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.2",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.2",
@@ -8014,19 +8014,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/jameshaddock/.nuget/packages/": {}
+    "/home/jameshaddock/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "projectUniqueName": "/home/jameshaddock/palworld-server-manager/ServerApp/ServerApp.csproj",
       "projectName": "ServerApp",
-      "projectPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/ServerApp.csproj",
-      "packagesPath": "/Users/jameshaddock/.nuget/packages/",
-      "outputPath": "/Users/jameshaddock/Desktop/Coding/Projects/palworld-server-manager/ServerApp/obj/",
+      "projectPath": "/home/jameshaddock/palworld-server-manager/ServerApp/ServerApp.csproj",
+      "packagesPath": "/home/jameshaddock/.nuget/packages/",
+      "outputPath": "/home/jameshaddock/palworld-server-manager/ServerApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jameshaddock/.nuget/NuGet/NuGet.Config"
+        "/home/jameshaddock/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8093,7 +8093,7 @@
           },
           "Microsoft.AspNetCore.SpaServices.Extensions": {
             "target": "Package",
-            "version": "[8.0.1, )"
+            "version": "[8.0.2, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -8165,7 +8165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/jameshaddock/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
