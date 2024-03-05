@@ -5,9 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <InvariantGlobalization>true</InvariantGlobalization>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />
   <Content Include="rcon/**" CopyToOutputDirectory="PreserveNewest" />
   <Content Include="Infrastructure/nginx-1.24.0/**" CopyToOutputDirectory="PreserveNewest" />
   <Content Include="Infrastructure/NginxLinux64/**" CopyToOutputDirectory="PreserveNewest" />
@@ -22,7 +25,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -38,5 +41,6 @@
     <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="20.0.15" />
     <PackageReference Include="YamlDotNet" Version="15.1.1" />
   </ItemGroup>
+
 
 </Project>

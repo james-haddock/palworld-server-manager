@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GUReZIef9IfRtTp5pQZYU2qm0QU3zIxZa6qwHaLkYZgekz3DO4DYClZKDHof3Klq6B/mTqcY6iBcqmWPxz4JEw==",
+  "dgSpecHash": "nX1955Q2MHazN/lqFVwqYsh1WZam329GLX9aPK9R0hGMqIeTKgDk4b3GR1Gmt5HkhMdoPc75t9zKXm1spyA5IQ==",
   "success": true,
   "projectFilePath": "/home/jameshaddock/palworld-server-manager/ServerApp/ServerApp.csproj",
   "expectedPackageFiles": [
@@ -55,7 +55,7 @@
     "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.http.features/2.1.1/microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
     "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/8.0.2/microsoft.aspnetcore.identity.entityframeworkcore.8.0.2.nupkg.sha512",
     "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.openapi/8.0.1/microsoft.aspnetcore.openapi.8.0.1.nupkg.sha512",
-    "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.spaservices.extensions/8.0.1/microsoft.aspnetcore.spaservices.extensions.8.0.1.nupkg.sha512",
+    "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.spaservices.extensions/8.0.2/microsoft.aspnetcore.spaservices.extensions.8.0.2.nupkg.sha512",
     "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.staticfiles/2.1.1/microsoft.aspnetcore.staticfiles.2.1.1.nupkg.sha512",
     "/home/jameshaddock/.nuget/packages/microsoft.aspnetcore.webutilities/2.1.1/microsoft.aspnetcore.webutilities.2.1.1.nupkg.sha512",
     "/home/jameshaddock/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

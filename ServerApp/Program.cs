@@ -1,6 +1,7 @@
 using System.IO.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,17 +23,19 @@ string rconPassword = configuration[$"{os}:RCON_PASSWORD"] ?? throw new Exceptio
 string rconPath = configuration[$"{os}:RCON_PATH"] ?? throw new Exception("RCON:Path is not set in configuration");
 string serverExecutablePath = configuration[$"{os}:SERVER_PATH"] ?? throw new Exception("SERVER_PATH is not set in configuration");
 
-if (os == "linux")
-{
-    builder.Services.AddSingleton<NginxLinux>();
-}
-else
-{
-    builder.Services.AddSingleton<Nginx>();
-}
+// if (os == "linux")
+// {
+//     builder.Services.AddSingleton<NginxLinux>();
+// }
+// else
+// {
+//     builder.Services.AddSingleton<Nginx>();
+// }
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
+
+
 
 builder.Services
     .AddSingleton<IFileSystem, FileSystem>()
@@ -43,6 +46,12 @@ builder.Services
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
         new RCONService(rconIp, rconPort, rconPassword, rconPath));
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddSpaStaticFiles(configuration =>
+{
+    configuration.RootPath = "wwwroot";
+});
 
 builder.Services
     .AddDbContext<AppDbContext>(options =>
@@ -80,14 +89,24 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 app.MapGraphQL();
 
+app.UseStaticFiles();
+app.UseSpa(spa =>
+{
+    spa.Options.SourcePath = "wwwroot";
+});
 
-if (os == "linux")
-{
-    var nginx = app.Services.GetRequiredService<NginxLinux>();
-}
-else
-{
-    var nginx = app.Services.GetRequiredService<Nginx>();
-}
+
+
+app.MapFallbackToFile("index.html");
+
+
+// if (os == "linux")
+// {
+//     var nginx = app.Services.GetRequiredService<NginxLinux>();
+// }
+// else
+// {
+//     var nginx = app.Services.GetRequiredService<Nginx>();
+// }
 
 app.Run();
