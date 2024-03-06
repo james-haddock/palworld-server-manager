@@ -24,7 +24,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const login = () => {
     setIsAuthenticated(true);
-    setUserRole("user");
   };
 
   return (

@@ -16,9 +16,9 @@ import {
 import classes from "./AuthenticationTitle.module.css";
 import { useAuth } from "../userAuthentication/AuthContext";
 
-interface AuthenticationTitleProps {
-  onLogin: (username: string, password: string, rememberMe: boolean) => void;
-}
+// interface AuthenticationTitleProps {
+//   onLogin: (username: string, password: string, rememberMe: boolean) => void;
+// }
 
 const LOGIN_MUTATION = gql`
   mutation Login($username: String!, $password: String!) {
@@ -28,7 +28,7 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
+export function AuthenticationTitle() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -39,14 +39,18 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    login();
-    navigate("/");
-    const response = await loginMutation({ variables: { username, password } });
-
-    if (response.data) {
-      localStorage.setItem("token", response.data.login.token);
-      onLogin(username, password, rememberMe);
-      navigate("/");
+    try {
+      const response = await loginMutation({
+        variables: { username, password },
+      });
+      if (response.data) {
+        const { token } = response.data.login;
+        localStorage.setItem("token", token);
+        login();
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
     }
   };
 

@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[13.8.1, )"
             },
+            "HotChocolate.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[13.9.0, )"
+            },
             "HotChocolate.AspNetCore.Playground": {
               "target": "Package",
               "version": "[10.5.5, )"
@@ -124,6 +128,10 @@
             "System.IO.Abstractions.TestingHelpers": {
               "target": "Package",
               "version": "[20.0.15, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.4.0, )"
             },
             "YamlDotNet": {
               "target": "Package",

@@ -2,6 +2,9 @@ using System.IO.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,14 +26,6 @@ string rconPassword = configuration[$"{os}:RCON_PASSWORD"] ?? throw new Exceptio
 string rconPath = configuration[$"{os}:RCON_PATH"] ?? throw new Exception("RCON:Path is not set in configuration");
 string serverExecutablePath = configuration[$"{os}:SERVER_PATH"] ?? throw new Exception("SERVER_PATH is not set in configuration");
 
-// if (os == "linux")
-// {
-//     builder.Services.AddSingleton<NginxLinux>();
-// }
-// else
-// {
-//     builder.Services.AddSingleton<Nginx>();
-// }
 
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
@@ -71,6 +66,34 @@ builder.Services
         .AddTypeExtension<UserAuthMutation>()
     .AddType<ServerSetting>();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+    };
+});
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddAuthorization();
+
+
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -79,13 +102,16 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
+var serviceProvider = app.Services.CreateScope().ServiceProvider;
+await SeedData.Initialize(serviceProvider);
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 
-// app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseRouting();
 app.MapGraphQL();
 
@@ -100,13 +126,5 @@ app.UseSpa(spa =>
 app.MapFallbackToFile("index.html");
 
 
-// if (os == "linux")
-// {
-//     var nginx = app.Services.GetRequiredService<NginxLinux>();
-// }
-// else
-// {
-//     var nginx = app.Services.GetRequiredService<Nginx>();
-// }
 
 app.Run();

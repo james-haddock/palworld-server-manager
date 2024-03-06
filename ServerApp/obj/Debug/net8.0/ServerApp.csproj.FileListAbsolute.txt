@@ -863,3 +863,6 @@ C:/Users/jhadd/Documents/Coding/Projects/palworld-server-manager/ServerApp/bin/D
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/T_CaptainPenguin_icon_normal-CuHvdg_-.webp
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/index.html
 /home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/vite.svg
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/appsettings.Development.json
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/index-BLzbpEK3.js
+/home/jameshaddock/palworld-server-manager/ServerApp/bin/Debug/net8.0/wwwroot/assets/index-CBo6saOE.js

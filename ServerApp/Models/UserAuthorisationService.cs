@@ -1,102 +1,61 @@
-using Isopoh.Cryptography.Argon2;
-using System;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using System.Threading.Tasks;
 
 public class AuthService : IAuthService
 {
-    private readonly IUserRepository _userRepository;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IConfiguration _configuration;
 
-    public AuthService(IUserRepository userRepository)
+    public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration)
     {
-        _userRepository = userRepository;
+        _userManager = userManager;
+        _configuration = configuration;
     }
 
-    public async Task<User> Authenticate(string username, string password)
+    public async Task<ApplicationUser> Authenticate(string username, string password)
     {
-        var user = await _userRepository.GetUserByUsername(username);
-
-        if (user == null)
-        {
+        var user = await _userManager.FindByNameAsync(username);
+        if (user == null || !await _userManager.CheckPasswordAsync(user, password))
             return null;
-        }
-
-        var isValid = Argon2.Verify(user.Password, password);
-
-        if (isValid)
-        {
-            return user;
-        }
-
-        return null;
-    }
-
-    public string GenerateJwt(User user)
-    {
-        var claims = new List<Claim>
-        {
-            new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.UniqueName, user.Username)
-        };
-
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super secret key"));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-        var tokenDescriptor = new SecurityTokenDescriptor
-        {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddDays(7),
-            SigningCredentials = creds
-        };
-
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        return tokenHandler.WriteToken(token);
-    }
-
-    public async Task<User> RegisterUser(string username, string password)
-    {
-        var existingUser = await _userRepository.GetUserByUsername(username);
-        if (existingUser != null)
-        {
-            throw new Exception("A user with this username already exists.");
-        }
-
-        var hashedPassword = Argon2.Hash(password);
-
-        var user = new User
-        {
-            Username = username,
-            Password = hashedPassword
-        };
-
-        await _userRepository.AddUser(user);
 
         return user;
     }
 
-    public async Task<User> ChangePassword(string username, string oldPassword, string newPassword)
+    public string GenerateJwt(ApplicationUser user)
     {
-        var user = await Authenticate(username, oldPassword);
-        if (user == null)
+        var claims = new List<Claim>
         {
-            throw new Exception("Invalid username or old password.");
-        }
+            new Claim(JwtRegisteredClaimNames.NameId, user.Id),
+            new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+            new Claim(ClaimTypes.Role, user.Role) // Add user role claim
+        };
 
-        var newHashedPassword = Argon2.Hash(newPassword);
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-        user.Password = newHashedPassword;
+        var token = new JwtSecurityToken(
+            issuer: _configuration["JWT:ValidIssuer"],
+            audience: _configuration["JWT:ValidAudience"],
+            claims: claims,
+            expires: DateTime.Now.AddDays(7),
+            signingCredentials: creds
+        );
 
-        var result = await _userRepository.UpdateUser(user);
-        if (result == null)
-        {
-            throw new Exception("Password change failed.");
-        }
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
 
-        return result;
+    public async Task<IdentityResult> RegisterUser(RegisterInput input)
+    {
+        var user = new ApplicationUser { UserName = input.Username };
+        return await _userManager.CreateAsync(user, input.Password);
+    }
+
+    public async Task<IdentityResult> ChangePassword(ApplicationUser user, string newPassword)
+    {
+        return await _userManager.ChangePasswordAsync(user, user.PasswordHash, newPassword);
     }
 }

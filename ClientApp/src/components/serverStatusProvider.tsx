@@ -7,6 +7,7 @@ const SERVER_STATUS_CHECK = gql`
     getServerInfo {
       serverStatus
       serverUpTime
+      serverInfo
     }
   }
 `;
@@ -18,6 +19,7 @@ export function ServerStatusProvider({
 }) {
   const [serverStatus, setServerStatus] = useState("Checking Server Status...");
   const [serverUpTime, setServerUpTime] = useState("0:00");
+  const [serverInfo, setServerInfo] = useState("");
   const { refetch } = useQuery(SERVER_STATUS_CHECK);
 
   useEffect(() => {
@@ -27,14 +29,17 @@ export function ServerStatusProvider({
         if (data?.getServerInfo.serverStatus === "Online") {
           setServerStatus("Online");
           setServerUpTime(data.getServerInfo.serverUpTime);
+          setServerInfo(data.getServerInfo.serverInfo);
         } else {
           setServerStatus("Offline");
           setServerUpTime("0:00");
+          setServerInfo("");
         }
       } catch (error) {
         console.error("Error gathering server status:", error);
         setServerStatus("Offline");
         setServerUpTime("0:00");
+        setServerInfo("");
       }
     }, 5000);
 
@@ -48,6 +53,8 @@ export function ServerStatusProvider({
         setServerStatus,
         serverUpTime,
         setServerUpTime,
+        serverInfo,
+        setServerInfo,
         refetch,
       }}
     >

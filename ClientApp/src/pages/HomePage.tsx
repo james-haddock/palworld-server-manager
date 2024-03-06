@@ -8,7 +8,7 @@ import { ServerStatusContext } from "../components/serverStatusContext";
 
 const HomePage: React.FC = () => {
   const [ip, setIp] = useState("");
-  const { serverStatus, serverUpTime, setServerUpTime } =
+  const { serverInfo, serverStatus, serverUpTime, setServerUpTime } =
     useContext(ServerStatusContext);
 
   useEffect(() => {
@@ -51,6 +51,7 @@ const HomePage: React.FC = () => {
             <Paper shadow="md" p="xl">
               Server Status
               <p>{serverStatus === "Online" ? "Online 🟢" : "Offline 🔴"}</p>
+              <p>{serverInfo}</p>
             </Paper>
           </Grid.Col>
           <Grid.Col span={{ base: 12, xs: 5 }}>
