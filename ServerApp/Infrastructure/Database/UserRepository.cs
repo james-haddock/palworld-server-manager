@@ -17,9 +17,9 @@ public class UserRepository : IUserRepository
 
     public async Task<IdentityResult> AddUser(ApplicationUser user)
     {
-        var result = await _dbContext.Users.AddAsync(user);
+        await _dbContext.Users.AddAsync(user);
         await _dbContext.SaveChangesAsync();
-        return result.Result;
+        return IdentityResult.Success;
     }
 
     public async Task<ApplicationUser> UpdateUser(ApplicationUser user)

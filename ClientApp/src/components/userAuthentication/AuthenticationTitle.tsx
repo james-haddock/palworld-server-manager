@@ -12,6 +12,7 @@ import {
   Container,
   Group,
   Button,
+  Notification,
 } from "@mantine/core";
 import classes from "./AuthenticationTitle.module.css";
 import { useAuth } from "../userAuthentication/AuthContext";
@@ -21,9 +22,10 @@ import { useAuth } from "../userAuthentication/AuthContext";
 // }
 
 const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation Login($input: LoginInput!) {
+    login(input: $input) {
       token
+      role
     }
   }
 `;
@@ -32,6 +34,7 @@ export function AuthenticationTitle() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -41,16 +44,21 @@ export function AuthenticationTitle() {
     event.preventDefault();
     try {
       const response = await loginMutation({
-        variables: { username, password },
+        variables: {
+          input: { username, password },
+        },
       });
       if (response.data) {
-        const { token } = response.data.login;
+        const { token, role } = response.data.login;
         localStorage.setItem("token", token);
-        login();
+        login(role);
         navigate("/");
       }
     } catch (error) {
       console.error("Login failed:", error);
+      setError(
+        "Failed to log in. Please check your username and password or try again later.",
+      );
     }
   };
 
@@ -65,6 +73,12 @@ export function AuthenticationTitle() {
           Create account
         </Anchor>
       </Text>
+
+      {error && (
+        <Notification color="red" onClose={() => setError("")}>
+          {error}
+        </Notification>
+      )}
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={handleSubmit}>
@@ -93,8 +107,7 @@ export function AuthenticationTitle() {
               Forgot password?
             </Anchor>
           </Group>
-          {/* <Button onClick={loginbutton} fullWidth mt="xl" type="submit"> */}
-          <Button fullWidth mt="xl" type="submit">
+          <Button onClick={handleSubmit} fullWidth mt="xl">
             Sign in
           </Button>
         </form>

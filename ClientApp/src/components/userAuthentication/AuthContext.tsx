@@ -6,7 +6,7 @@ interface AuthContextValue {
   userRole: string;
   setUserRole: React.Dispatch<React.SetStateAction<string>>;
   logout: () => void;
-  login: () => void;
+  login: (role: string) => void;
 }
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -22,8 +22,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     setUserRole("");
   };
 
-  const login = () => {
+  const login = (role: string) => {
     setIsAuthenticated(true);
+    console.log("setIsAuthenticated==true");
+    setUserRole(role);
   };
 
   return (

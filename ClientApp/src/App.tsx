@@ -26,7 +26,7 @@ const App: React.FC = () => {
                 path="/"
                 element={
                   <PrivateRoute
-                    role="user"
+                    role="User"
                     element={
                       <div className="marginleft">
                         <HomePage />
@@ -39,7 +39,7 @@ const App: React.FC = () => {
                 path="/admin"
                 element={
                   <PrivateRoute
-                    role="user"
+                    role="User"
                     element={
                       <div className="marginleft">
                         <AdminPage />
@@ -52,7 +52,7 @@ const App: React.FC = () => {
                 path="/config"
                 element={
                   <PrivateRoute
-                    role="admin"
+                    role="Admin"
                     element={
                       <div className="marginleft">
                         <ConfigPage />
@@ -65,7 +65,7 @@ const App: React.FC = () => {
                 path="/other"
                 element={
                   <PrivateRoute
-                    role="user"
+                    role="User"
                     element={
                       <div className="marginleft">
                         <OtherPage />

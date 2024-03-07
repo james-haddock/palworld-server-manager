@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = new ConfigurationBuilder()
@@ -26,18 +25,15 @@ string rconPassword = configuration[$"{os}:RCON_PASSWORD"] ?? throw new Exceptio
 string rconPath = configuration[$"{os}:RCON_PATH"] ?? throw new Exception("RCON:Path is not set in configuration");
 string serverExecutablePath = configuration[$"{os}:SERVER_PATH"] ?? throw new Exception("SERVER_PATH is not set in configuration");
 
-
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
-
-
 
 builder.Services
     .AddSingleton<IFileSystem, FileSystem>()
     .AddSingleton<IniSettingsService>(sp =>
         new IniSettingsService("./DefaultPalWorldSettings.ini", sp.GetRequiredService<IFileSystem>()))
-        .AddSingleton<ServerControlService>(sp =>
-              new ServerControlService(serverExecutablePath, sp.GetRequiredService<RCONService>(), sp.GetRequiredService<ILogger<ServerControlService>>()))
+    .AddSingleton<ServerControlService>(sp =>
+        new ServerControlService(serverExecutablePath, sp.GetRequiredService<RCONService>(), sp.GetRequiredService<ILogger<ServerControlService>>()))
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
         new RCONService(rconIp, rconPort, rconPassword, rconPath));
@@ -50,20 +46,20 @@ builder.Services.AddSpaStaticFiles(configuration =>
 
 builder.Services
     .AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(configuration.GetConnectionString("DefaultConnection")))
+        options.UseSqlite(configuration.GetConnectionString("DefaultConnection")))
     .AddScoped<IUserRepository, UserRepository>()
     .AddScoped<IAuthService, AuthService>();
 
 builder.Services
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
-        .AddTypeExtension<ServerSettingsQuery>()
-        .AddTypeExtension<ServerStatusQuery>()
+    .AddTypeExtension<ServerSettingsQuery>()
+    .AddTypeExtension<ServerStatusQuery>()
     .AddMutationType(d => d.Name("Mutation"))
-        .AddTypeExtension<ServerSettingsMutation>()
-        .AddTypeExtension<ServerControlMutation>()
-        .AddTypeExtension<MutationRCON>()
-        .AddTypeExtension<UserAuthMutation>()
+    .AddTypeExtension<ServerSettingsMutation>()
+    .AddTypeExtension<ServerControlMutation>()
+    .AddTypeExtension<MutationRCON>()
+    .AddTypeExtension<UserAuthMutation>()
     .AddType<ServerSetting>();
 
 builder.Services.AddAuthentication(options =>
@@ -92,18 +88,23 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 builder.Services.AddAuthorization();
 
-
-
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<AppDbContext>();
+
+    dbContext.Database.EnsureCreated();
+
+    if (dbContext.Database.GetPendingMigrations().Any())
+    {
+        dbContext.Database.Migrate();
+    }
+
+    await SeedData.Initialize(services);
 }
 
-var serviceProvider = app.Services.CreateScope().ServiceProvider;
-await SeedData.Initialize(serviceProvider);
 
 if (app.Environment.IsDevelopment())
 {
@@ -121,10 +122,6 @@ app.UseSpa(spa =>
     spa.Options.SourcePath = "wwwroot";
 });
 
-
-
 app.MapFallbackToFile("index.html");
-
-
 
 app.Run();
