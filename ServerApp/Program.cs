@@ -2,7 +2,11 @@ using System.IO.Abstractions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using HotChocolate;
+using HotChocolate.Types;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,26 +27,15 @@ string rconPassword = configuration[$"{os}:RCON_PASSWORD"] ?? throw new Exceptio
 string rconPath = configuration[$"{os}:RCON_PATH"] ?? throw new Exception("RCON:Path is not set in configuration");
 string serverExecutablePath = configuration[$"{os}:SERVER_PATH"] ?? throw new Exception("SERVER_PATH is not set in configuration");
 
-// if (os == "linux")
-// {
-//     builder.Services.AddSingleton<NginxLinux>();
-// }
-// else
-// {
-//     builder.Services.AddSingleton<Nginx>();
-// }
-
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
-
-
 
 builder.Services
     .AddSingleton<IFileSystem, FileSystem>()
     .AddSingleton<IniSettingsService>(sp =>
         new IniSettingsService("./DefaultPalWorldSettings.ini", sp.GetRequiredService<IFileSystem>()))
-        .AddSingleton<ServerControlService>(sp =>
-              new ServerControlService(serverExecutablePath, sp.GetRequiredService<RCONService>(), sp.GetRequiredService<ILogger<ServerControlService>>()))
+    .AddSingleton<ServerControlService>(sp =>
+        new ServerControlService(serverExecutablePath, sp.GetRequiredService<RCONService>(), sp.GetRequiredService<ILogger<ServerControlService>>()))
     .AddSingleton<ServerStatusChecker>()
     .AddSingleton<RCONService>(sp =>
         new RCONService(rconIp, rconPort, rconPassword, rconPath));
@@ -54,38 +47,70 @@ builder.Services.AddSpaStaticFiles(configuration =>
 });
 
 builder.Services
-    .AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(configuration.GetConnectionString("DefaultConnection")))
+    .AddDbContext<AppDbContext>()
     .AddScoped<IUserRepository, UserRepository>()
     .AddScoped<IAuthService, AuthService>();
 
 builder.Services
     .AddGraphQLServer()
     .AddQueryType(d => d.Name("Query"))
-        .AddTypeExtension<ServerSettingsQuery>()
-        .AddTypeExtension<ServerStatusQuery>()
+    .AddTypeExtension<ServerSettingsQuery>()
+    .AddTypeExtension<ServerStatusQuery>()
     .AddMutationType(d => d.Name("Mutation"))
-        .AddTypeExtension<ServerSettingsMutation>()
-        .AddTypeExtension<ServerControlMutation>()
-        .AddTypeExtension<MutationRCON>()
-        .AddTypeExtension<UserAuthMutation>()
+    .AddTypeExtension<ServerSettingsMutation>()
+    .AddTypeExtension<ServerControlMutation>()
+    .AddTypeExtension<MutationRCON>()
+    .AddTypeExtension<UserAuthMutation>()
     .AddType<ServerSetting>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+    };
+});
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+using (var dbContext = new AppDbContext())
 {
-    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate();
+    dbContext.Database.EnsureCreated();
+
+    if (dbContext.Database.GetPendingMigrations().Any())
+    {
+        dbContext.Database.Migrate();
+    }
+
+    // await SeedData.Initialize(app.Services);
 }
+
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 
-// app.UseAuthentication();
-// app.UseAuthorization();
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseRouting();
 app.MapGraphQL();
 
@@ -95,18 +120,6 @@ app.UseSpa(spa =>
     spa.Options.SourcePath = "wwwroot";
 });
 
-
-
 app.MapFallbackToFile("index.html");
-
-
-// if (os == "linux")
-// {
-//     var nginx = app.Services.GetRequiredService<NginxLinux>();
-// }
-// else
-// {
-//     var nginx = app.Services.GetRequiredService<Nginx>();
-// }
 
 app.Run();

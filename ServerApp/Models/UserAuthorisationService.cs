@@ -1,102 +1,143 @@
-using Isopoh.Cryptography.Argon2;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
 
 public class AuthService : IAuthService
 {
-    private readonly IUserRepository _userRepository;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IConfiguration _configuration;
+    private readonly ILogger<AuthService> _logger;
 
-    public AuthService(IUserRepository userRepository)
+    public AuthService(UserManager<ApplicationUser> userManager, IConfiguration configuration, ILogger<AuthService> logger)
     {
-        _userRepository = userRepository;
+        _userManager = userManager;
+        _configuration = configuration;
+        _logger = logger;
     }
 
-    public async Task<User> Authenticate(string username, string password)
+    public async Task<ApplicationUser> Authenticate(string username, string password)
     {
-        var user = await _userRepository.GetUserByUsername(username);
+        _logger.LogInformation("Authenticating user {Username}", username);
 
-        if (user == null)
+        try
         {
-            return null;
-        }
+            _logger.LogDebug("Finding user by username: {Username}", username);
+            var user = await _userManager.FindByNameAsync(username);
 
-        var isValid = Argon2.Verify(user.Password, password);
+            if (user == null)
+            {
+                _logger.LogWarning("User not found: {Username}", username);
+                return null;
+            }
 
-        if (isValid)
-        {
+            _logger.LogDebug("Checking password for user: {Username}", username);
+            var isPasswordValid = await _userManager.CheckPasswordAsync(user, password);
+
+            if (!isPasswordValid)
+            {
+                _logger.LogWarning("Invalid password for user: {Username}", username);
+                return null;
+            }
+
+            _logger.LogInformation("User {Username} authenticated successfully", username);
             return user;
         }
-
-        return null;
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while authenticating user {Username}", username);
+            throw;
+        }
     }
 
-    public string GenerateJwt(User user)
+    public string GenerateJwt(ApplicationUser user)
     {
-        var claims = new List<Claim>
+        _logger.LogInformation("Generating JWT for user {Username}", user.UserName);
+
+        try
         {
-            new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.UniqueName, user.Username)
-        };
+            _logger.LogDebug("Creating claims for user {Username}", user.UserName);
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.NameId, user.Id),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+                new Claim(ClaimTypes.Role, user.Role) // Add user role claim
+            };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super secret key"));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            _logger.LogDebug("Retrieving JWT secret from configuration");
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]));
 
-        var tokenDescriptor = new SecurityTokenDescriptor
+            _logger.LogDebug("Creating signing credentials");
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            _logger.LogDebug("Creating JWT token");
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JWT:ValidIssuer"],
+                audience: _configuration["JWT:ValidAudience"],
+                claims: claims,
+                expires: DateTime.Now.AddDays(7),
+                signingCredentials: creds
+            );
+
+            _logger.LogDebug("Writing JWT token");
+            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
+
+            _logger.LogInformation("JWT generated for user {Username}: {TokenString}", user.UserName, tokenString);
+
+            return tokenString;
+        }
+        catch (Exception ex)
         {
-            Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.Now.AddDays(7),
-            SigningCredentials = creds
-        };
-
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var token = tokenHandler.CreateToken(tokenDescriptor);
-
-        return tokenHandler.WriteToken(token);
+            _logger.LogError(ex, "An error occurred while generating JWT for user {Username}", user.UserName);
+            throw;
+        }
     }
 
-    public async Task<User> RegisterUser(string username, string password)
+    public async Task<IdentityResult> RegisterUser(RegisterInput input)
     {
-        var existingUser = await _userRepository.GetUserByUsername(username);
-        if (existingUser != null)
+        _logger.LogInformation("Registering user {Username}", input.Username);
+        using (var dbContext = new AppDbContext())
         {
-            throw new Exception("A user with this username already exists.");
+            var user = new ApplicationUser { UserName = input.Username };
+            var result = await _userManager.CreateAsync(user, input.Password);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User {Username} registered successfully", input.Username);
+            }
+            else
+            {
+                _logger.LogWarning("Registration failed for user {Username}", input.Username);
+            }
+
+            return result;
         }
-
-        var hashedPassword = Argon2.Hash(password);
-
-        var user = new User
-        {
-            Username = username,
-            Password = hashedPassword
-        };
-
-        await _userRepository.AddUser(user);
-
-        return user;
     }
 
-    public async Task<User> ChangePassword(string username, string oldPassword, string newPassword)
+    public async Task<IdentityResult> ChangePassword(ApplicationUser user, string newPassword)
     {
-        var user = await Authenticate(username, oldPassword);
-        if (user == null)
+        using (var dbContext = new AppDbContext())
         {
-            throw new Exception("Invalid username or old password.");
+            _logger.LogInformation("Changing password for user {Username}", user.UserName);
+
+            var result = await _userManager.ChangePasswordAsync(user, user.PasswordHash, newPassword);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("Password changed successfully for user {Username}", user.UserName);
+            }
+            else
+            {
+                _logger.LogWarning("Password change failed for user {Username}", user.UserName);
+            }
+
+            return result;
         }
-
-        var newHashedPassword = Argon2.Hash(newPassword);
-
-        user.Password = newHashedPassword;
-
-        var result = await _userRepository.UpdateUser(user);
-        if (result == null)
-        {
-            throw new Exception("Password change failed.");
-        }
-
-        return result;
     }
 }

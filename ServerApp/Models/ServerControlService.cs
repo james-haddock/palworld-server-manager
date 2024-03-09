@@ -46,7 +46,7 @@ public class ServerControlService
                     checkServerStartup = _rconConnection.SendServerCommand("Info").Result;
                     if (checkServerStartup != null)
                     {
-                        _logger.LogInformation(checkServerStartup);
+                        // _logger.LogInformation(checkServerStartup);
                         serverOnline = true;
                     }
                     else
@@ -85,7 +85,7 @@ public class ServerControlService
             _logger.LogInformation("Shutdown request sent to server.");
             string shutdownResponse;
             shutdownResponse = _rconConnection.SendServerCommand("Shutdown").Result;
-            _logger.LogInformation(shutdownResponse);
+            // _logger.LogInformation(shutdownResponse);
             return true;
         }
         catch (Exception ex)
@@ -109,7 +109,7 @@ public class ServerControlService
                 checkServerStartup = _rconConnection.SendServerCommand("Info").Result;
                 if (checkServerStartup != null)
                 {
-                    _logger.LogInformation(checkServerStartup);
+                    // _logger.LogInformation(checkServerStartup);
                     serverOnline = true;
                 }
                 else

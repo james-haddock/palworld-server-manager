@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
+
 public interface IUserRepository
 {
-    Task<User> GetUserByUsername(string username);
-    Task AddUser(User user);
-    Task<User> UpdateUser(User user);
+    Task<ApplicationUser> GetUserByUsername(string username);
+    Task<IdentityResult> AddUser(ApplicationUser user);
+    Task<ApplicationUser> UpdateUser(ApplicationUser user);
 }

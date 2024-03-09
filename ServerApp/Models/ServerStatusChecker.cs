@@ -53,14 +53,14 @@ public class ServerStatusChecker
     {
         while (!cancellationToken.IsCancellationRequested)
         {
-            _logger.LogInformation("Retrieving server status for app.");
+            // _logger.LogInformation("Retrieving server status for app.");
             try
             {
                 string? checkServerStartup = await _rconConnection.SendServerCommand("Info");
                 if (checkServerStartup != null)
                 {
-                    _logger.LogInformation(checkServerStartup);
-                    _logger.LogInformation("Server is online.");
+                    // _logger.LogInformation(checkServerStartup);
+                    // _logger.LogInformation("Server is online.");
                     ServerStatus = "Online";
                 }
                 else
@@ -79,7 +79,7 @@ public class ServerStatusChecker
                 string? serverInfo = await _rconConnection.SendServerCommand("Info");
                 if (serverInfo != null)
                 {
-                    _logger.LogInformation(serverInfo);
+                    // _logger.LogInformation(serverInfo);
                     ServerInfo = serverInfo;
                 }
                 else

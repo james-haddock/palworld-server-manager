@@ -1,18 +1,18 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<ApplicationUser>
 {
-    public DbSet<User> Users { get; set; }
-
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    public AppDbContext()
+        : base(GetContextOptions())
     {
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    private static DbContextOptions<AppDbContext> GetContextOptions()
     {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlite("Data Source=Infrastructure/Database/Sqlite/PalworldServerManagerDb.db");
-        }
+        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+        optionsBuilder.UseSqlite("Data Source=PalworldServerManagerDb.db");
+        optionsBuilder.LogTo(Console.WriteLine, LogLevel.Debug);
+        return optionsBuilder.Options;
     }
 }

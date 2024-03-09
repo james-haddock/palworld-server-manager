@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Content Include="appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="appsettings.Development.json" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="wwwroot/**" CopyToOutputDirectory="PreserveNewest" />
   <Content Include="rcon/**" CopyToOutputDirectory="PreserveNewest" />
   <Content Include="Infrastructure/nginx-1.24.0/**" CopyToOutputDirectory="PreserveNewest" />
@@ -17,7 +18,9 @@
   <Content Include="run/**" CopyToOutputDirectory="PreserveNewest" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="CoreRCON" Version="5.3.2" />
+    <PackageReference Include="HotChocolate" Version="13.9.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="13.8.1" />
+    <PackageReference Include="HotChocolate.AspNetCore.Authorization" Version="13.9.0" />
     <PackageReference Include="HotChocolate.AspNetCore.Playground" Version="10.5.5" />
     <PackageReference Include="ini-parser" Version="2.5.2" />
     <PackageReference Include="IniParser" Version="1.0.1" />
@@ -34,12 +37,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
     <PackageReference Include="OmniSharp.Extensions.LanguageServer" Version="0.19.9" />
     <PackageReference Include="Open.Nat" Version="2.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.0" />
     <PackageReference Include="System.IO.Abstractions" Version="20.0.15" />
     <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="20.0.15" />
     <PackageReference Include="YamlDotNet" Version="15.1.1" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.1" />
   </ItemGroup>
 
 

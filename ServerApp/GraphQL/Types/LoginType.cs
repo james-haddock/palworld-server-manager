@@ -1,20 +1,16 @@
 public class LoginInput
 {
-    public string User { get; set; }
+    public string Username { get; set; }
     public string Password { get; set; }
 }
 
 public class UserPayload
 {
-    public int Id { get; set; }
+    public string Id { get; set; }
     public string Username { get; set; }
     public string Role { get; set; }
-}
-
-public class AuthPayload
-{
     public string Token { get; set; }
-    public UserPayload User { get; set; }
+    public string ErrorMessage { get; set; }
 }
 
 public class RegisterInput
@@ -37,12 +33,6 @@ public class ChangePasswordInput
 }
 
 public class ChangePasswordPayload
-{
-    public string Token { get; set; }
-    public UserPayload User { get; set; }
-}
-
-public class LoginPayload
 {
     public string Token { get; set; }
     public UserPayload User { get; set; }

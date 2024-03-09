@@ -1,30 +1,44 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 
 public class UserRepository : IUserRepository
 {
-    private readonly AppDbContext _context;
+    private readonly AppDbContext _dbContext;
 
-    public UserRepository(AppDbContext context)
+    public UserRepository(AppDbContext dbContext)
     {
-        _context = context;
+        _dbContext = dbContext;
     }
 
-    public async Task<User> GetUserByUsername(string username)
+    public async Task<ApplicationUser> GetUserByUsername(string username)
     {
-        return await _context.Users.SingleOrDefaultAsync(u => u.Username == username);
+        using (var dbContext = new AppDbContext())
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username);
+        }
     }
 
-    public async Task AddUser(User user)
+    public async Task<IdentityResult> AddUser(ApplicationUser user)
     {
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
+        using (var dbContext = new AppDbContext())
+        {
+            await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
+            return IdentityResult.Success;
+        }
     }
 
-    public async Task<User> UpdateUser(User user)
+    public async Task<ApplicationUser> UpdateUser(ApplicationUser user)
     {
-        _context.Users.Update(user);
-        await _context.SaveChangesAsync();
-        return user;
+        using (var dbContext = new AppDbContext())
+        {
+            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+            if (existingUser == null)
+                return null;
+
+            _dbContext.Entry(existingUser).CurrentValues.SetValues(user);
+            await _dbContext.SaveChangesAsync();
+            return existingUser;
+        }
     }
 }

@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 public interface IAuthService
 {
-    Task<User> Authenticate(string username, string password);
-    string GenerateJwt(User user);
-    Task<User> RegisterUser(string username, string password);
-    Task<User> ChangePassword(string username, string oldPassword, string newPassword);
+    Task<ApplicationUser> Authenticate(string username, string password);
+    string GenerateJwt(ApplicationUser user);
+    Task<IdentityResult> RegisterUser(RegisterInput input);
+    Task<IdentityResult> ChangePassword(ApplicationUser user, string newPassword);
 }

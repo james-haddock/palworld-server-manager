@@ -12,26 +12,29 @@ import {
   Container,
   Group,
   Button,
+  Notification,
 } from "@mantine/core";
 import classes from "./AuthenticationTitle.module.css";
 import { useAuth } from "../userAuthentication/AuthContext";
 
-interface AuthenticationTitleProps {
-  onLogin: (username: string, password: string, rememberMe: boolean) => void;
-}
+// interface AuthenticationTitleProps {
+//   onLogin: (username: string, password: string, rememberMe: boolean) => void;
+// }
 
 const LOGIN_MUTATION = gql`
-  mutation Login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
+  mutation Login($input: LoginInput!) {
+    login(input: $input) {
       token
+      role
     }
   }
 `;
 
-export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
+export function AuthenticationTitle() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
@@ -39,14 +42,23 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    login();
-    navigate("/");
-    const response = await loginMutation({ variables: { username, password } });
-
-    if (response.data) {
-      localStorage.setItem("token", response.data.login.token);
-      onLogin(username, password, rememberMe);
-      navigate("/");
+    try {
+      const response = await loginMutation({
+        variables: {
+          input: { username, password },
+        },
+      });
+      if (response.data) {
+        const { token, role } = response.data.login;
+        localStorage.setItem("token", token);
+        login(role);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      setError(
+        "Failed to log in. Please check your username and password or try again later.",
+      );
     }
   };
 
@@ -61,6 +73,12 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
           Create account
         </Anchor>
       </Text>
+
+      {error && (
+        <Notification color="red" onClose={() => setError("")}>
+          {error}
+        </Notification>
+      )}
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <form onSubmit={handleSubmit}>
@@ -89,8 +107,7 @@ export function AuthenticationTitle({ onLogin }: AuthenticationTitleProps) {
               Forgot password?
             </Anchor>
           </Group>
-          {/* <Button onClick={loginbutton} fullWidth mt="xl" type="submit"> */}
-          <Button fullWidth mt="xl" type="submit">
+          <Button onClick={handleSubmit} fullWidth mt="xl">
             Sign in
           </Button>
         </form>
