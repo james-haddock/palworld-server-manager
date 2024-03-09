@@ -6,11 +6,12 @@ public static class SeedData
 {
     public static async Task Initialize(IServiceProvider serviceProvider)
     {
-        using (var scope = serviceProvider.CreateScope())
+        using (var dbContext = new AppDbContext())
         {
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
             var existingUser = await userManager.FindByNameAsync("testuser");
+
             if (existingUser == null)
             {
                 var newUser = new ApplicationUser
@@ -21,6 +22,7 @@ public static class SeedData
                 };
 
                 var result = await userManager.CreateAsync(newUser, "Passw0rd!");
+
                 if (result.Succeeded)
                 {
                     Console.WriteLine("User created successfully.");

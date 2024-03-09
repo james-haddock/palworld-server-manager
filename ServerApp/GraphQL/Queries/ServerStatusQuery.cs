@@ -1,3 +1,5 @@
+using HotChocolate;
+using HotChocolate.Types;
 
 [ExtendObjectType("Query")]
 public class ServerStatusQuery
@@ -15,7 +17,7 @@ public class ServerStatusQuery
     {
         try
         {
-            _logger.LogInformation("Retrieving server status for client.");
+            // _logger.LogInformation("Retrieving server status for client.");
             return _serverStatusChecker.ServerStatus;
         }
         catch (Exception ex)
@@ -29,7 +31,7 @@ public class ServerStatusQuery
     {
         try
         {
-            _logger.LogInformation("Retrieving server info for client.");
+            // _logger.LogInformation("Retrieving server info for client.");
             return new ServerStats
             {
                 IpAddress = await GetIpAddress.GetPublicIpAddressAsync(),

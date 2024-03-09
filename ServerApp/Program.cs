@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using HotChocolate;
+using HotChocolate.Types;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,8 +47,7 @@ builder.Services.AddSpaStaticFiles(configuration =>
 });
 
 builder.Services
-    .AddDbContext<AppDbContext>(options =>
-        options.UseSqlite(configuration.GetConnectionString("DefaultConnection")))
+    .AddDbContext<AppDbContext>()
     .AddScoped<IUserRepository, UserRepository>()
     .AddScoped<IAuthService, AuthService>();
 
@@ -90,11 +91,8 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
+using (var dbContext = new AppDbContext())
 {
-    var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<AppDbContext>();
-
     dbContext.Database.EnsureCreated();
 
     if (dbContext.Database.GetPendingMigrations().Any())
@@ -102,7 +100,7 @@ using (var scope = app.Services.CreateScope())
         dbContext.Database.Migrate();
     }
 
-    await SeedData.Initialize(services);
+    // await SeedData.Initialize(app.Services);
 }
 
 

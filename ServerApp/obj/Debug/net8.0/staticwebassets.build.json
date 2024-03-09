@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "l1i3v3k8pKRtRGSwiF9lqauParjtfQia7m7JUvzzHzk=",
+  "Hash": "mrEyUUfCf2VYeFRq4NyPDZEJznl9qxbHcjqHzTnKhCU=",
   "Source": "ServerApp",
   "BasePath": "_content/ServerApp",
   "Mode": "Default",
@@ -34,6 +34,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/assets/depresso-D2iHz3vB.png"
+    },
+    {
+      "Identity": "/home/jameshaddock/palworld-server-manager/ServerApp/wwwroot/assets/index-7yH5dCdL.js",
+      "SourceId": "ServerApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/jameshaddock/palworld-server-manager/ServerApp/wwwroot/",
+      "BasePath": "_content/ServerApp",
+      "RelativePath": "assets/index-7yH5dCdL.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/index-7yH5dCdL.js"
     },
     {
       "Identity": "/home/jameshaddock/palworld-server-manager/ServerApp/wwwroot/assets/index-BdYSQ0Yn.css",

@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using HotChocolate;
+using HotChocolate.Types;
 
 [ExtendObjectType("Mutation")]
 public class UserAuthMutation
@@ -20,10 +21,14 @@ public class UserAuthMutation
         _logger.LogInformation("Login attempt for user {Username}", input.Username);
 
         var user = await _authService.Authenticate(input.Username, input.Password);
+
         if (user == null)
         {
             _logger.LogWarning("Invalid username or password for user {Username}", input.Username);
-            throw new Exception("Invalid username or password.");
+            return new UserPayload
+            {
+                ErrorMessage = "Invalid username or password."
+            };
         }
 
         var token = _authService.GenerateJwt(user);
@@ -48,7 +53,13 @@ public class UserAuthMutation
         if (!result.Succeeded)
         {
             _logger.LogWarning("Registration failed for user {Username}", input.Username);
-            throw new Exception("Registration failed.");
+            return new RegisterPayload
+            {
+                User = new UserPayload
+                {
+                    ErrorMessage = "Registration failed."
+                }
+            };
         }
 
         var user = await _authService.Authenticate(input.Username, input.Password);
@@ -73,10 +84,17 @@ public class UserAuthMutation
         _logger.LogInformation("Password change attempt for user {Username}", input.Username);
 
         var user = await _authService.Authenticate(input.Username, input.OldPassword);
+
         if (user == null)
         {
             _logger.LogWarning("Invalid username or password for user {Username}", input.Username);
-            throw new Exception("Invalid username or password.");
+            return new ChangePasswordPayload
+            {
+                User = new UserPayload
+                {
+                    ErrorMessage = "Invalid username or password."
+                }
+            };
         }
 
         var result = await _authService.ChangePassword(user, input.NewPassword);
@@ -84,7 +102,13 @@ public class UserAuthMutation
         if (!result.Succeeded)
         {
             _logger.LogWarning("Password change failed for user {Username}", input.Username);
-            throw new Exception("Password change failed.");
+            return new ChangePasswordPayload
+            {
+                User = new UserPayload
+                {
+                    ErrorMessage = "Password change failed."
+                }
+            };
         }
 
         var token = _authService.GenerateJwt(user);

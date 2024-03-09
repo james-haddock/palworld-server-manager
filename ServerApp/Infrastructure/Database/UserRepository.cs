@@ -12,24 +12,33 @@ public class UserRepository : IUserRepository
 
     public async Task<ApplicationUser> GetUserByUsername(string username)
     {
-        return await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username);
+        using (var dbContext = new AppDbContext())
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username);
+        }
     }
 
     public async Task<IdentityResult> AddUser(ApplicationUser user)
     {
-        await _dbContext.Users.AddAsync(user);
-        await _dbContext.SaveChangesAsync();
-        return IdentityResult.Success;
+        using (var dbContext = new AppDbContext())
+        {
+            await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
+            return IdentityResult.Success;
+        }
     }
 
     public async Task<ApplicationUser> UpdateUser(ApplicationUser user)
     {
-        var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
-        if (existingUser == null)
-            return null;
+        using (var dbContext = new AppDbContext())
+        {
+            var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+            if (existingUser == null)
+                return null;
 
-        _dbContext.Entry(existingUser).CurrentValues.SetValues(user);
-        await _dbContext.SaveChangesAsync();
-        return existingUser;
+            _dbContext.Entry(existingUser).CurrentValues.SetValues(user);
+            await _dbContext.SaveChangesAsync();
+            return existingUser;
+        }
     }
 }

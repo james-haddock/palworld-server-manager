@@ -1,3 +1,6 @@
+using HotChocolate;
+using HotChocolate.Types;
+
 [ExtendObjectType("Mutation")]
 public class ServerAdminMutation
 {

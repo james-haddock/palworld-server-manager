@@ -26,15 +26,34 @@ public class AuthService : IAuthService
     {
         _logger.LogInformation("Authenticating user {Username}", username);
 
-        var user = await _userManager.FindByNameAsync(username);
-        if (user == null || !await _userManager.CheckPasswordAsync(user, password))
+        try
         {
-            _logger.LogWarning("Authentication failed for user {Username}", username);
-            return null;
-        }
+            _logger.LogDebug("Finding user by username: {Username}", username);
+            var user = await _userManager.FindByNameAsync(username);
 
-        _logger.LogInformation("User {Username} authenticated successfully", username);
-        return user;
+            if (user == null)
+            {
+                _logger.LogWarning("User not found: {Username}", username);
+                return null;
+            }
+
+            _logger.LogDebug("Checking password for user: {Username}", username);
+            var isPasswordValid = await _userManager.CheckPasswordAsync(user, password);
+
+            if (!isPasswordValid)
+            {
+                _logger.LogWarning("Invalid password for user: {Username}", username);
+                return null;
+            }
+
+            _logger.LogInformation("User {Username} authenticated successfully", username);
+            return user;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while authenticating user {Username}", username);
+            throw;
+        }
     }
 
     public string GenerateJwt(ApplicationUser user)
@@ -83,37 +102,42 @@ public class AuthService : IAuthService
     public async Task<IdentityResult> RegisterUser(RegisterInput input)
     {
         _logger.LogInformation("Registering user {Username}", input.Username);
-
-        var user = new ApplicationUser { UserName = input.Username };
-        var result = await _userManager.CreateAsync(user, input.Password);
-
-        if (result.Succeeded)
+        using (var dbContext = new AppDbContext())
         {
-            _logger.LogInformation("User {Username} registered successfully", input.Username);
-        }
-        else
-        {
-            _logger.LogWarning("Registration failed for user {Username}", input.Username);
-        }
+            var user = new ApplicationUser { UserName = input.Username };
+            var result = await _userManager.CreateAsync(user, input.Password);
 
-        return result;
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("User {Username} registered successfully", input.Username);
+            }
+            else
+            {
+                _logger.LogWarning("Registration failed for user {Username}", input.Username);
+            }
+
+            return result;
+        }
     }
 
     public async Task<IdentityResult> ChangePassword(ApplicationUser user, string newPassword)
     {
-        _logger.LogInformation("Changing password for user {Username}", user.UserName);
-
-        var result = await _userManager.ChangePasswordAsync(user, user.PasswordHash, newPassword);
-
-        if (result.Succeeded)
+        using (var dbContext = new AppDbContext())
         {
-            _logger.LogInformation("Password changed successfully for user {Username}", user.UserName);
-        }
-        else
-        {
-            _logger.LogWarning("Password change failed for user {Username}", user.UserName);
-        }
+            _logger.LogInformation("Changing password for user {Username}", user.UserName);
 
-        return result;
+            var result = await _userManager.ChangePasswordAsync(user, user.PasswordHash, newPassword);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation("Password changed successfully for user {Username}", user.UserName);
+            }
+            else
+            {
+                _logger.LogWarning("Password change failed for user {Username}", user.UserName);
+            }
+
+            return result;
+        }
     }
 }
