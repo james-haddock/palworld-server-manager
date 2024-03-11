@@ -52,7 +52,7 @@ const App: React.FC = () => {
                 path="/config"
                 element={
                   <PrivateRoute
-                    role="Admin"
+                    role="User"
                     element={
                       <div className="marginleft">
                         <ConfigPage />
